@@ -5,12 +5,13 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #00acb0;
+  background-color: #4094dd;
   overflow: hidden;
 }
 
 .logo {
-  max-width: 20px;
+  max-width: 30px;
+  padding-left: 10px;
 }
 
 .nav a {
@@ -18,17 +19,18 @@
 }
 
 .nav-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #f2f2f2;
-  padding-left: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #0b0606;
+  padding-left: 20px;
   margin: 0;
+  
 }
 
 .navLink {
   display: inline-block;
-  color: #f2f2f2;
-  background-color: #00acb0;
+  color: #0b0606;
+  background-color: #4094dd;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
