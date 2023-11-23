@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-// ABOUT, GALLERY, DONATE, ORDER
+// ABOUT, GALLERY, DONATE, ORDER!
 
 function Nav() {
 
