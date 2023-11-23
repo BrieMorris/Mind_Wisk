@@ -9,6 +9,10 @@
   overflow: hidden;
 }
 
+.logo {
+  max-width: 20px;
+}
+
 .nav a {
   text-decoration: none;
 }
