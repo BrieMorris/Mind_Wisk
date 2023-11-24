@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './DonationPage.css'; 
 import { useSelector } from 'react-redux';
 
@@ -9,9 +8,7 @@ function DonationPage() {
   return (
     <div className="donationpage">
 
-            {/* <Link className="navLink" to="/donate">
-              Donation Page 
-            </Link> */}
+      <h1> this is the donate page </h1>
 
       </div>
   );
