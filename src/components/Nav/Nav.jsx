@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import { Route } from 'react-router-dom';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import DonationPage from '../Donation/DonationPage';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -19,8 +36,17 @@ function Nav() {
           <Link className="navLink" to="/login">
             Login / Register
           </Link>
-        )}
 
+
+
+        )}
+<Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/donate"
+          >
+            <DonationPage />
+          </Route>
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
@@ -35,6 +61,12 @@ function Nav() {
             <LogOutButton className="navLink" />
           </>
         )}
+
+
+
+        {/* <Link className="navLink" to="/donate">
+         Donate
+        </Link> */}
 
         <Link className="navLink" to="/about">
           About

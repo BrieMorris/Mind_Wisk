@@ -1,27 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '.DonationPage.css'; 
+import './DonationPage.css'; 
 import { useSelector } from 'react-redux';
 
-function Nav() {
+function DonationPage() {
   const user = useSelector((store) => store.user);
 
   return (
     <div className="donationpage">
 
-            <Link className="navLink" to="/info">
+            {/* <Link className="navLink" to="/donate">
               Donation Page 
-            </Link>
+            </Link> */}
 
-            <LogOutButton className="navLink" />
-      
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
-    </div>
   );
 }
 
-export default Nav;
+export default DonationPage;
