@@ -10,8 +10,9 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
@@ -35,7 +36,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.22"
   },
   "browserslist": {
     "production": [
@@ -50,5 +51,10 @@
       "last 1 safari version"
     ]
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "description": "This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
