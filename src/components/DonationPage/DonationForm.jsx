@@ -22,16 +22,16 @@ export default function DonationForm() {
                     <Grid item xs={6}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}> 
-                            <Button value= "$5"> $5 </Button> 
+                            <Button value= "$5" onChange={handleChange}> $5 </Button> 
                             </Grid>
                             <Grid item xs={12}> 
-                            <Button value="$10"> $10 </Button>
+                            <Button value="$10" onChange={handleChange}> $10 </Button>
                             </Grid> 
                             <Grid item xs={12}> 
-                            <Button value= "$15"> $15 </Button> 
+                            <Button value= "$15" onChange={handleChange}> $15 </Button> 
                             </Grid> 
                             <Grid item xs={12}> 
-                            <Button value="$20"> $20 </Button>    
+                            <Button value="$20" onChange={handleChange}> $20 </Button>    
                             </Grid> 
                             <Grid item xs={12}>
                                 <OutlinedInput
