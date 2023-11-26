@@ -54,6 +54,7 @@ import Typography from '@mui/material/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import DonationForm from './DonationForm';
 
 function Copyright() {
   return (
@@ -68,15 +69,17 @@ function Copyright() {
   );
 }
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Donate Selection', 'Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <DonationForm />;
     case 1:
-      return <PaymentForm />;
+      return <AddressForm />;
     case 2:
+      return <PaymentForm />;
+    case 3:
       return <Review />;
     default:
       throw new Error('Unknown step');
@@ -108,7 +111,7 @@ export default function Checkout() {
       >
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-           MindWisk
+            MindWisk
           </Typography>
         </Toolbar>
       </AppBar>
