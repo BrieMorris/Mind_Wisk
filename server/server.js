@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-import cors from 'cors';
+// import cors from 'cors';
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -22,8 +22,8 @@ app.use(sessionMiddleware);
 // start up passport sessions
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors()); 
-app.use(json()); 
+// app.use(cors()); 
+// app.use(json()); 
 
 
 /* Routes */
