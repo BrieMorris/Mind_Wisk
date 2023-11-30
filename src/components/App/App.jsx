@@ -13,12 +13,18 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+// Components
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+
+import OrderPage from '../OrderPage/OrderPage';
+
+
+
 
 import './App.css';
 
@@ -68,12 +74,18 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+         {/* <Route
+          exact path ="/gallery"
+          >
+            <Gallery />
+          </Route> */}
+
           <Route
             exact
             path="/login"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
               :
@@ -87,7 +99,7 @@ function App() {
             path="/registration"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -101,7 +113,7 @@ function App() {
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -109,6 +121,14 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+
+          <Route exact path="/order">
+            <OrderPage />
+          </Route>
+
+
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

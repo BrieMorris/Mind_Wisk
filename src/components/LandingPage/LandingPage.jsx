@@ -3,63 +3,66 @@ import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
+
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('MindWisk');
   const history = useHistory();
 
-  const onLogin = (event) => {
-    history.push('/login');
-  };
+ 
+  // const toOrder = (event) => {
+  //   history.push('/order')
+  // }
+
+  // const toDonate = (event) => {
+  //   history.push('/donate')
+  // }
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <h1>{heading}</h1>
+      <h2>Simultaneously
+      stimulating & relaxing.</h2>
+      <h2>Head massagers like the MindWisk are the simplest, most amazing way to feel good.
+        Our first mission is to give away 1,000,000 head massagers.</h2>
+        <button> GET ONE FREE </button>
+
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
-          </p>
+          <h1>Benifits</h1>
 
-          <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
-          </p>
+          
+            <h3>Feel Good Without Chemicals</h3>
+            <p>
+            Studies have shown that massage can increase the production of certain chemicals in the body, including endorphins and serotonin. https://nccih.nih.gov/health/massage https://www.quora.com/Whats-the-science-behind-head-massagers
+            </p>
+                <br/>
 
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
-          </p>
+            <h3>Ancient Wisdom</h3>
+            <p>
+            The people of India have incorporated head massage into therapeutic practice for about 5,000 years as part of Ayurveda, a holistic medicine.
+            </p>
+              <br/>
+
+              <h3>Grow Hair & Detoxify</h3>
+            <p>
+            Grow hair and detoxify Head massage is known to increase oxygen to the scalp and hair follicles which stimulates hair growth. It helps detoxify the body by stimulating lymphatic drainage and blood flow to the neck thus removing waste products from the body.
+            </p>
+
+         
         </div>
         <div className="grid-col grid-col_4">
-          <RegisterForm />
+          <h1>Our Mission </h1>
 
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
+          <h2>Ok, they're great. But really, why GIVE them away?</h2>
+
+          <p>Think of those you love with whom you would share small things without ever expecting anything in return. Your family. Maybe a few close friends. What if we had that same giving attitude with a few more people. Or with our whole area. Or with everyone. We all know it feels good to help other people feel good. Being helped makes other people want to help other people. We create more joy, which in turn creates more joy. It's surprisingly nice to unexpectedly receive something of value for free and it encourages us all to be more generous with everyone in our own lives. And it's so very simple.</p>
+
+          <h3>Spread the joy!</h3>
+
+          <button> Donate </button>
+
         </div>
       </div>
     </div>
