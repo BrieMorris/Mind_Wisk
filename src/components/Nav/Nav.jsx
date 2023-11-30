@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './logo.png'
+import logo from './logo.png';
 import './Nav.css';
 
-// ABOUT, GALLERY, DONATE, ORDER!
-
 function Nav() {
-
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">MindWisk<img className= "logo" src={logo}/></h2>
+        <h2 className="nav-title">
+          MindWisk
+          <img className="logo" src={logo} alt="Logo" />
+        </h2>
       </Link>
-      <div>
+      <div className="nav-links">
         <Link className="navLink" to="/about">
           About
         </Link>
