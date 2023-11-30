@@ -8,7 +8,7 @@ const { default: logger } = require('redux-logger');
  */
 router.get('/', (req, res) => {
 
-  const queryText = ``
+  const queryText = `SELECT * FROM images;`
   pool.query(queryText)
     .then(result => {
       res.send(result.rows);
@@ -25,7 +25,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   
   console.log(req.body);
-  const queryText = 
+  const queryText = `INSERT INTO "images" ("image", "description")
+  VALUES ($1,$2);`
 
 });
 

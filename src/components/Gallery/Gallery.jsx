@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+// import { styled } from '@mui/material/styles';
+// import Box from '@mui/material/Box';
+// import Paper from '@mui/material/Paper';
+// import Grid from '@mui/material/Grid';
 
 //For grid view of gallery - still need to download material ui 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -18,12 +18,17 @@ import Grid from '@mui/material/Grid';
 
 //function for users to see pictures of people using the mind wisk
 function Gallery(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+
   const [heading, setHeading] = useState('MindWisk Gallery');
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
+  const galleryImages = useSelector(store => store.galleryReducer.userGallery);
+
+  console.log('gallery images', galleryImages);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ALL_IMAGES'})
+  }, []);
 
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
@@ -35,6 +40,8 @@ function Gallery(props) {
   return (
     <div>
       <h2>{heading}</h2>
+      <br/>  <br/>
+
     </div>
   );
 }

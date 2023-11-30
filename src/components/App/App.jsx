@@ -19,15 +19,9 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
-
-<<<<<<< HEAD
-=======
+// import RegisterPage from '../RegisterPage/RegisterPage';
+import Gallery from '../Gallery/Gallery';
 import OrderPage from '../OrderPage/OrderPage';
-
-
-
->>>>>>> 52c43592e355d0a7df8eae4d29d261bbbc72bc7d
 
 import './App.css';
 
@@ -77,11 +71,11 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-         {/* <Route
+         <Route
           exact path ="/gallery"
           >
             <Gallery />
-          </Route> */}
+          </Route>
 
           <Route
             exact
@@ -97,7 +91,7 @@ function App() {
             }
           </Route>
 
-          <Route
+          {/* <Route
             exact
             path="/registration"
           >
@@ -109,7 +103,7 @@ function App() {
               // Otherwise, show the registration page
               <RegisterPage />
             }
-          </Route>
+          </Route> */}
 
           <Route
             exact
