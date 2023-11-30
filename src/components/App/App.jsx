@@ -21,13 +21,10 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
-<<<<<<< HEAD
-=======
 import OrderPage from '../OrderPage/OrderPage';
 
 
 
->>>>>>> 52c43592e355d0a7df8eae4d29d261bbbc72bc7d
 
 import './App.css';
 
