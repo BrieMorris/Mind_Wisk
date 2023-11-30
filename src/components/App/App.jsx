@@ -7,10 +7,6 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // Components
@@ -20,13 +16,12 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 import OrderPage from '../OrderPage/OrderPage';
 
-
-
-
 import './App.css';
+import Disclaimer from '../Disclaimer/Disclaimer';
 
 function App() {
   const dispatch = useDispatch();
@@ -125,6 +120,10 @@ function App() {
 
           <Route exact path="/order">
             <OrderPage />
+          </Route>
+
+          <Route exact path="/disclaimer">
+            <Disclaimer />
           </Route>
 
 
