@@ -7,7 +7,7 @@ const { default: logger } = require('redux-logger');
  * GET route for user gallery page 
  */
 router.get('/', (req, res) => {
- 
+
   const queryText = ``
   pool.query(queryText)
     .then(result => {
