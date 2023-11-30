@@ -10,6 +10,13 @@ function LandingPage() {
   const history = useHistory();
 
  
+  // const toOrder = (event) => {
+  //   history.push('/order')
+  // }
+
+  // const toDonate = (event) => {
+  //   history.push('/donate')
+  // }
 
   return (
     <div className="container">
