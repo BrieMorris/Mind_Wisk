@@ -20,7 +20,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+
 import OrderPage from '../OrderPage/OrderPage';
+
+
 
 
 import './App.css';
@@ -70,6 +73,12 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+
+         {/* <Route
+          exact path ="/gallery"
+          >
+            <Gallery />
+          </Route> */}
 
           <Route
             exact
