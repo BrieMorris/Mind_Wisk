@@ -1,44 +1,9 @@
-// import React from 'react';
-// import './DonationPage.css'; 
-// import { useSelector } from 'react-redux';
-
-// function DonationPage() {
-//   const user = useSelector((store) => store.user);
-
-
-//   const stripe = require('stripe')('sk_test_');
-
-// stripe.products.create({
-//   name: 'Starter Subscription',
-//   description: '$12/Month subscription',
-// }).then(product => {
-//   stripe.prices.create({
-//     unit_amount: 1200,
-//     currency: 'usd',
-//     recurring: {
-//       interval: 'month',
-//     },
-//     product: product.id,
-//   }).then(price => {
-//     console.log('Success! Here is your starter subscription product id: ' + product.id);
-//     console.log('Success! Here is your starter subscription price id: ' + price.id);
-//   });
-// });
-
-//   return (
-//     <div className="donationpage">
-
-//       <h1> this is the donate page </h1>
-
-//       </div>
-//   );
-// }
-
-// export default DonationPage;
-
-
-
+import React from 'react';
 import * as React from 'react';
+import './DonationPage.css'; 
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -56,7 +21,12 @@ import PaymentForm from './PaymentForm';
 import Review from './Review';
 import DonationForm from './DonationForm';
 
+
+
 function Copyright() {
+
+
+
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
@@ -86,7 +56,20 @@ function getStepContent(step) {
   }
 }
 
-export default function Checkout() {
+//Calling `loadStripe` outside of a component's 
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe('pk_test_fillin');  // fill in the the test 
+
+
+export default function DonationPage() {
+
+  const options = {
+    // passing the client secret obtained from the server
+    clientSecret: '{{CLIENT_SECRET}}',
+  };
+
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -98,6 +81,7 @@ export default function Checkout() {
   };
 
   return (
+    <Elements stripe={stripePromise} options={options} > 
     <React.Fragment>
       <CssBaseline />
       <AppBar
@@ -162,5 +146,6 @@ export default function Checkout() {
         <Copyright />
       </Container>
     </React.Fragment>
+</Elements>
   );
-}
+}; 
