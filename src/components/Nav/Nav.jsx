@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './logo.png';
+import logo from './MindWisk Brand Board (5).png';
 import './Nav.css';
 
 function Nav() {
