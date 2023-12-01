@@ -1,6 +1,8 @@
 import React from 'react';
 import './Footer.css';
 import img4 from './4.png'
+import { useHistory } from 'react-router-dom';
+
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -8,6 +10,12 @@ import img4 from './4.png'
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
+
+  const history = useHistory();
+
+  const disclaimer = (event) => {
+    history.push('/disclaimer')
+  }
 
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
@@ -24,7 +32,7 @@ function Footer() {
     <br/>
     &copy; MindWisk 
     <br/>  <br/>  <br/> 
-     <button> Discliamer </button>
+     <button onClick = {disclaimer}> Discliamer </button>
      </div>
 
      <div className="right">
