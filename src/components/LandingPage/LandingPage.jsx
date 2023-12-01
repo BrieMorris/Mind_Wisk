@@ -31,7 +31,7 @@ function LandingPage() {
       <div className="grid">
         <div className="grid-col grid-col_8">
           <h1>Benefits</h1>
-
+          <br />
 
           <h3>Feel Good Without Chemicals</h3>
           <p>

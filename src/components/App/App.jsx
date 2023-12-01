@@ -15,6 +15,10 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
+import OrderPage from '../OrderPage/OrderPage'
+import Gallery from '../Gallery/Gallery';
+import Footer from '../Footer/Footer';
+import Nav from '../Nav/Nav';
 
 import './App.css';
 import Disclaimer from '../Disclaimer/Disclaimer';
