@@ -32,7 +32,7 @@ function Footer() {
     <br/>
     &copy; MindWisk 
     <br/>  <br/>  <br/> 
-     <button onClick = {disclaimer}> Discliamer </button>
+     <button onClick = {disclaimer}> Disclaimer </button>
      </div>
 
      <div className="right">
