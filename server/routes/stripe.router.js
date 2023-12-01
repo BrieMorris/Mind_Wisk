@@ -7,6 +7,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//install in terminal and maybe move over to server.js 
+//use for unique user id if needed. 
+const uuid = require("uuid/v4"); 
+
 
 /**
  * GET route template
