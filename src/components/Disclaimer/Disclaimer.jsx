@@ -12,7 +12,7 @@ function Disclaimer() {
 
     const titleStyle = {
         marginBottom: '12px',
-        color: '#356390',
+        color: '#787878',
     };
 
     const secondSectionStyle = {

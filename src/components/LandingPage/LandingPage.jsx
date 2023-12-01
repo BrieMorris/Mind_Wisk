@@ -57,7 +57,7 @@ function LandingPage() {
             the scalp and hair follicles which stimulates hair growth. It helps
             detoxify the body by stimulating lymphatic drainage and blood flow
             to the neck thus removing waste products from the body.
-
+          </p>
         </div>
         <div className="grid-col grid-col_4">
           <h1>Our Mission</h1>
