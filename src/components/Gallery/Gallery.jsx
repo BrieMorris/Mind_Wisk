@@ -8,11 +8,12 @@ import Grid from '@mui/material/Grid';
 
 // For grid view of gallery - still need to download material ui 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#808080',
+  backgroundColor: theme.palette.mode === 'dark' ? '#d9d9d9' : '#1f4a43',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary, 
+  
 }));
 
 
@@ -38,7 +39,8 @@ function Gallery(props) {
 
 
   return (
-    <div>
+    <div className="container">
+      {/* add funderaising bar here  */}
       <h2>{heading}</h2>
       <br/>  <br/>
       {console.log('gallery images', galleryImages)}
@@ -50,9 +52,10 @@ function Gallery(props) {
             <div key={photo.id} >
               {console.log('photo id', photo.id)}
               
-              <Grid item xs={10}>
+              <Grid item xs={10} >
                 <Item>
-              <img src={photo.image} onLoad={(event) => resizeImg(event.target, 300)} alt="MindWisk Photo" />
+              <img src={photo.image} onLoad={(event) => resizeImg(event.target, 200)} alt="MindWisk Photo" />
+              <h3>{photo.description}</h3>
               <br/>  <br/>
             
               </Item>
