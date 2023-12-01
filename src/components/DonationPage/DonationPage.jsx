@@ -56,9 +56,9 @@ function getStepContent(step) {
   }
 }
 
-//Calling `loadStripe` outside of a component's 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
+//Calling `loadStripe` outside of a component's to render to avoid recreating the `Stripe` obect on every render. 
+// intizalize Stripe Object 
+// calling loadStripe loads latest version of stripe.js, helps with security. 
 const stripePromise = loadStripe('pk_test_fillin');  // fill in the the test 
 
 

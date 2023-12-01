@@ -1,7 +1,7 @@
+// const cors = require("cors"); 
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-// import cors from 'cors';
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -15,6 +15,9 @@ const stripeRouter = require('./routes/stripe.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cors()); 
+// app.use(json()); 
+
 
 // Passport Session Configuration //
 app.use(sessionMiddleware);
@@ -22,8 +25,7 @@ app.use(sessionMiddleware);
 // start up passport sessions
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(cors()); 
-// app.use(json()); 
+
 
 
 /* Routes */
