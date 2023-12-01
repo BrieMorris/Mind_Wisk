@@ -42,3 +42,10 @@ CREATE TABLE "donations" (
 "email" VARCHAR(300) NOT NULL,
 "donationamount" int
 );
+
+
+INSERT INTO "images" ("image", "description")
+VALUES ('group.jpg','Naile and friends with head massagers');
+
+INSERT INTO "images" ("image", "description")
+VALUES ('IMG_2.jpg','Ready to give away some MindWisk');
