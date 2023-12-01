@@ -16,7 +16,7 @@ function Disclaimer() {
     };
 
     const secondSectionStyle = {
-        marginTop: '24px', // Add margin-top for spacing between sections
+        marginTop: '24px', 
     };
 
     return (
