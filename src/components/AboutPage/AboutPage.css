@@ -4,7 +4,7 @@
   color: #787878;
   text-align: center;
   position: relative;
-  margin: 20px; 
+  margin: 50px;
 }
 
 h1,
@@ -24,7 +24,7 @@ h3 {
   position: absolute;
   width: 40%;
   height: 1px;
-  background-color: #787878; 
+  background-color: #787878;
   top: 50%;
 }
 
