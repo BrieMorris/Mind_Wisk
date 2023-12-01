@@ -78,3 +78,11 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+/* Progress Bar, "Spreading thhe joy!", and Donate button */
+.donatecontainer {
+  width: 50%; /* or any specific width */
+  margin: 0 auto; /* auto margin on left and right */
+  text-align: center; /* centering the inline/inline-block content */
+}
+
