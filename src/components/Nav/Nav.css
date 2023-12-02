@@ -1,42 +1,48 @@
+/* Nav.css */
+
 .nav {
-  /* flex box layout */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #356390;
+  padding: 10px 20px;
+}
 
-  margin: 0 0 30px;
-  background-color: #00acb0;
-  overflow: hidden;
+.nav-title {
+  display: flex;
+  align-items: center;
+  color: #f8f4f4;
+  font-size: 50px;
+  font-weight: lighter;
+  cursor: pointer;
+  font-family: "montserrat";
 }
 
 .nav a {
   text-decoration: none;
 }
 
-.nav-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #f2f2f2;
-  padding-left: 10px;
-  margin: 0;
+.logo {
+  max-width: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
 .navLink {
-  display: inline-block;
-  color: #f2f2f2;
-  background-color: #00acb0;
-  text-align: center;
-  padding: 24px 10px;
+  color: #f8f4f4;
   text-decoration: none;
-  font-size: 15px;
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
-  border: none;
-  cursor: pointer;
-  outline: 0;
+  font-size: 22px;
+  font-family: "montserrat" ;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: #d9d9d9;
 }
