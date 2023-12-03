@@ -34,6 +34,8 @@ app.post("/create-payment-intent", async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({ 
     amount: calculateOrderAmount(items), 
     currency: "usd", 
+    //accepts payment methods that you enable in the Dashboard and that are compatible with this PaymentIntent’s other parameters
+    //adjust in dashboard 
     automatic_payment_methods: { 
       enabled: true, 
     }, 

@@ -21,8 +21,18 @@ import PaymentForm from './PaymentForm';
 import Review from './Review';
 import DonationForm from './DonationForm';
 
+import React, { useState, useEffect } from "react"; 
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
+
+import DonationCheckoutForm from './DonationCheckoutForm';
 // Payment Intent and Parent component for paymentelement 
+
+
+
+
+
 
 function Copyright() {
 
