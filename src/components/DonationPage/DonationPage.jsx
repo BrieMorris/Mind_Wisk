@@ -22,6 +22,7 @@ import Review from './Review';
 import DonationForm from './DonationForm';
 
 
+// Payment Intent and Parent component for paymentelement 
 
 function Copyright() {
 

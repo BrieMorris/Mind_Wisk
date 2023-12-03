@@ -19,7 +19,31 @@ const stripePaymentIntentRouter = require('./routes/stripe.paymentIntent.router'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cors()); 
+// app.use(express.static("public")); 
 // app.use(json()); 
+
+const calculateDonationAmount = (donationTotal) => { 
+  //calcuation for confirming donation total and retruning it 
+  return 1400; 
+};
+
+app.post("/create-payment-intent", async (req, res) => { 
+  const { items } = req.body; 
+
+  // create a PaymentIntent with the order amount and currency 
+  const paymentIntent = await stripe.paymentIntents.create({ 
+    amount: calculateOrderAmount(items), 
+    currency: "usd", 
+    automatic_payment_methods: { 
+      enabled: true, 
+    }, 
+  })
+}); 
+
+res.send({
+  clientSecret: paymentIntent.client_secret, 
+}); 
+
 
 
 // Passport Session Configuration //
