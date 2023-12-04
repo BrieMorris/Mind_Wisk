@@ -14,6 +14,7 @@ const ordersRouter = require('./routes/orders.router');
 
 const galleryRouter = require('./routes/gallery.router')
 
+// const adminRouter = require('./routes/admin.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,7 +34,7 @@ app.use('/orders', ordersRouter);
 
 app.use('/api/gallery', galleryRouter);
 
-
+// app.use('/api/admin', adminRouter)
 // Serve static files
 app.use(express.static('build'));
 

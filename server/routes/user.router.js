@@ -8,6 +8,16 @@ const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
+// // Middleware to restrict access to admin users
+// const rejectIfNotAdmin = (req, res, next) => {
+//   if (req.isAuthenticated() && req.user.isadmin) {
+//     next(); // User is authenticated and an admin
+//   } else {
+//     res.status(403).json({ message: 'Access Denied' }); // Forbidden access
+//   }
+// };
+
+
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
@@ -46,5 +56,11 @@ router.post('/logout', (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
+
+// // Admin-only route example
+// router.get('/admin-dashboard', rejectIfNotAdmin, (req, res) => {
+//   // Admin specific logic here
+//   res.send("Admin Dashboard");
+// });
 
 module.exports = router;

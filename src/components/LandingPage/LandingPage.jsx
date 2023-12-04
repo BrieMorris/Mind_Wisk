@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
-
+import LoginPage from "../LoginPage/LoginPage";
 // CUSTOM COMPONENTS
 
 function LandingPage() {
@@ -82,12 +82,13 @@ function LandingPage() {
           {/* Progress Bar */}
           {/* Update ProgressBar level here */}
 
-          <ProgressBar level="Low" />
-          {/* ^ Will relocate switch once we have Admin Page ^ */}
+          {/* <ProgressBar level="Low" />
+          ^ Will relocate switch once we have Admin Page ^ */}
 
           <h3>Spread the joy!</h3>
           <br></br>
           <button> Donate </button>
+          <LoginPage></LoginPage>
         </div>
       </div>
     </div>
