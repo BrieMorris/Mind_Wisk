@@ -117,7 +117,9 @@ function App() {
             }
           </Route>
 
-
+<Route>
+  <LandingPage/>
+</Route>
           <Route exact path="/order">
             <OrderPage />
           </Route>

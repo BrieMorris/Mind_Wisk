@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import LoginPage from "../LoginPage/LoginPage";
+import { useSelector } from "react-redux";
 // CUSTOM COMPONENTS
 
 function LandingPage() {
@@ -16,6 +17,28 @@ function LandingPage() {
   // const toDonate = (event) => {
   //   history.push('/donate')
   // }
+
+  const user = useSelector(state => state.user);
+  const isLoggedIn = Object.keys(user).length > 0;
+
+  const levels = ["Insufficient", "Low", "Plenty"];
+
+// Initialize state from local storage or default to 0
+const [levelIndex, setLevelIndex] = useState(() => {
+  const savedIndex = localStorage.getItem("levelIndex");
+  return savedIndex !== null ? Number(savedIndex) : 0;
+});
+
+
+useEffect(() => {
+  // Update local storage when levelIndex changes
+  localStorage.setItem("levelIndex", levelIndex);
+}, [levelIndex]);
+
+
+const handleButtonClick = () => {
+  setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+};
 
   return (
     <div className="container">
@@ -78,17 +101,28 @@ function LandingPage() {
           </p>
           <br></br>
         </div>
-        <div className="donatecontainer">
-          {/* Progress Bar */}
-          {/* Update ProgressBar level here */}
-
-          {/* <ProgressBar level="Low" />
+        {/* <div className="donatecontainer"> */}
+        {/* Progress Bar */}
+        {/* Update ProgressBar level here */}
+        {/*
+          <ProgressBar level="Insufficient" />
           ^ Will relocate switch once we have Admin Page ^ */}
+
+        <div className="donatecontainer">
+          <ProgressBar level={levels[levelIndex]} />
+
+          <h3>Spread the joy!</h3>
+          <br></br>
+          {/* Conditionally render the button if the user is logged in */}
+        {isLoggedIn && (
+          <button onClick={handleButtonClick}>Change Level</button>
+        )}
 
           <h3>Spread the joy!</h3>
           <br></br>
           <button> Donate </button>
           <LoginPage></LoginPage>
+
         </div>
       </div>
     </div>
