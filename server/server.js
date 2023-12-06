@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-
+const { authUser } = require('./modules/basicAuth')
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
+
+
 
 // Route includes
 const userRouter = require('./routes/user.router');
@@ -13,6 +15,8 @@ const userRouter = require('./routes/user.router');
 const ordersRouter = require('./routes/orders.router');
 
 const galleryRouter = require('./routes/gallery.router')
+
+const adminRouter = require('./routes/admin.router')
 
 // const adminRouter = require('./routes/admin.router')
 
@@ -34,7 +38,9 @@ app.use('/orders', ordersRouter);
 
 app.use('/api/gallery', galleryRouter);
 
-// app.use('/api/admin', adminRouter)
+app.use('/api/admin', adminRouter)
+
+
 // Serve static files
 app.use(express.static('build'));
 
