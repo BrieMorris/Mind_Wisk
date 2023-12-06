@@ -1,16 +1,15 @@
 // DonationForm.jsx
 
 import { Card, CardContent, Typography, Grid, InputAdornment, OutlinedInput, Button } from "@mui/material";
-import { number } from "prop-types";
 import { useState } from "react";
 
 export default function DonationForm() {
-    const [amount, setAmount] = useState(Number['null']);
+    const [amount, setAmount] = useState(Number[null]);
 
     const handleChange = (value) => {
         setAmount(Number(value));
     }
-    
+
     return (
         <Card>
             <CardContent>
@@ -53,4 +52,4 @@ export default function DonationForm() {
                 </Grid>
             </CardContent>
         </Card>)
-}
+}; 
