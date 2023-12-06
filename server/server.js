@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-
+const cors = require("cors"); 
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -17,8 +17,6 @@ const galleryRouter = require('./routes/gallery.router')
 const stripePaymentIntentRouter = require('./routes/stripePaymentIntent.router.js'); 
 
 
-
-
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +28,9 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//CORS 
+app.use(cors({ origin: true })); 
+
 /* Routes */
 app.use('/api/user', userRouter);
 
@@ -37,7 +38,7 @@ app.use('/orders', ordersRouter);
 
 app.use('/api/gallery', galleryRouter);
 
-app.use('/create-payment-intent', stripePaymentIntentRouter)
+app.use('/api/create-payment-intent', stripePaymentIntentRouter)
 
 
 // Serve static files
@@ -52,38 +53,3 @@ app.listen(PORT, () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// const calculateDonationAmount = (donationTotal) => { 
-//   //calcuation for confirming donation total and retruning it 
-//   return 1400; 
-// };
-
-
-app.use(express.json()); 
-app.use(cors({ origin: true })); 
-
-app.use(stripeRoutes);
-app.use(express.static("public")); 
-
-
-
-
-import Stripe from 'stripe';
-import express, {json} from 'express';
-import * as dotenv from 'dotenv';
-import cors from 'cors';
-import createStripeRoutes from './routes/stripePaymentIntent.router.js';
-const stripe = require ("stripe")('sk_test_fill in test security key'); 
-const stripeRoutes = createStripeRoutes(stripe);
-const cors = require("cors"); 
