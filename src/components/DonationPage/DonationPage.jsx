@@ -76,108 +76,118 @@ function DonationPage() {
 
   const [clientSecret, setClientSecret] = useState("");
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+    useEffect(() => {
+      // Create PaymentIntent as soon as the page loads
+      const createPaymentIntent = async (amount) => {
+        try {
+          const response = await fetch('/api/create-payment-intent', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: amount }),
+          });
+          const data = await response.json();
+          setClientSecret(data.clientSecret);
+        } catch (error) {
+          console.error("Error creating payment intent:", error);
+        }
+      };
+    
+      // Calls the function with the actual amount 
+      createPaymentIntent(yourAmountVariable); // 'yourAmountVariable' gets replaces with amount value 
+    
+    }, []);
 
-  const appearance = {
-    theme: 'stripe',
-  };
-  const options = {
-    // passing the client secret obtained from the server
-    clientSecret: '{{CLIENT_SECRET}}',
-    appearance,
-  };
-
-
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
-  };
-
-  return (
-    <div className='donationPage'>
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <React.Fragment>
-            <CssBaseline />
-            <AppBar
-              position="absolute"
-              color="default"
-              elevation={0}
-              sx={{
-                position: 'relative',
-                borderBottom: (t) => `1px solid ${t.palette.divider}`,
-              }}
-            >
-              <Toolbar>
-                <Typography variant="h6" color="inherit" noWrap>
-                  MindWisk
-                </Typography>
-              </Toolbar>
-            </AppBar>
-            <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-              <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-                <Typography component="h1" variant="h4" align="center">
-                  Checkout
-                </Typography>
-                <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-                  {steps.map((label) => (
-                    <Step key={label}>
-                      <StepLabel>{label}</StepLabel>
-                    </Step>
-                  ))}
-                </Stepper>
-                {activeStep === steps.length ? (
-                  <React.Fragment>
-                    <Typography variant="h5" gutterBottom>
-                      Thank you for your Donation.
-                    </Typography>
-                    <Typography variant="subtitle1">
-                      Your Donation Confirmatin number is is #2001539. We have emailed your recipt
-                      confirmation.
-                    </Typography>
-                  </React.Fragment>
-                ) : (
-                  <React.Fragment>
-                    {getStepContent(activeStep)}
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                      {activeStep !== 0 && (
-                        <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                          Back
-                        </Button>
-                      )}
-
-                      <Button
-                        variant="contained"
-                        onClick={handleNext}
-                        sx={{ mt: 3, ml: 1 }}
-                      >
-                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                      </Button>
-                    </Box>
-                  </React.Fragment>
-                )}
-              </Paper>
-              <Copyright />
-            </Container>
-          </React.Fragment>
-      )}
-      
-  };
-        </div>
+const appearance = {
+  theme: 'stripe',
+};
+const options = {
+  // passing the client secret obtained from the server
+  clientSecret: '{{CLIENT_SECRET}}',
+  appearance,
 };
 
-      export default DonationPage; 
+
+const [activeStep, setActiveStep] = React.useState(0);
+
+const handleNext = () => {
+  setActiveStep(activeStep + 1);
+};
+
+const handleBack = () => {
+  setActiveStep(activeStep - 1);
+};
+
+return (
+  <div className='donationPage'>
+    {clientSecret && (
+      <Elements options={options} stripe={stripePromise}>
+        <React.Fragment>
+          <CssBaseline />
+          <AppBar
+            position="absolute"
+            color="default"
+            elevation={0}
+            sx={{
+              position: 'relative',
+              borderBottom: (t) => `1px solid ${t.palette.divider}`,
+            }}
+          >
+            <Toolbar>
+              <Typography variant="h6" color="inherit" noWrap>
+                MindWisk
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+            <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+              <Typography component="h1" variant="h4" align="center">
+                Checkout
+              </Typography>
+              <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+                {steps.map((label) => (
+                  <Step key={label}>
+                    <StepLabel>{label}</StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+              {activeStep === steps.length ? (
+                <React.Fragment>
+                  <Typography variant="h5" gutterBottom>
+                    Thank you for your Donation.
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    Your Donation Confirmatin number is is #2001539. We have emailed your recipt
+                    confirmation.
+                  </Typography>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {getStepContent(activeStep)}
+                  <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                        Back
+                      </Button>
+                    )}
+
+                    <Button
+                      variant="contained"
+                      onClick={handleNext}
+                      sx={{ mt: 3, ml: 1 }}
+                    >
+                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    </Button>
+                  </Box>
+                </React.Fragment>
+              )}
+            </Paper>
+            <Copyright />
+          </Container>
+        </React.Fragment>
+      </Elements>
+    )}
+  </div>
+)
+};
+
+export default DonationPage; 

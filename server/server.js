@@ -1,10 +1,16 @@
-// const cors = require("cors"); 
+import Stripe from 'stripe';
+import express, {json} from 'express';
+import * as dotenv from 'dotenv';
+import cors from 'cors';
+import createStripeRoutes from './routes/stripe.js';
+
+const cors = require("cors"); 
 const express = require('express');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+require('dotenv').config(( {path: '../.env'}));
 const app = express();
-// const stripe = require ("stripe")('sk_test_fill in test security key'); 
-
+const stripe = require ("stripe")('sk_test_fill in test security key'); 
+const stripeRoutes = createStripeRoutes(stripe);
 
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
@@ -12,14 +18,19 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+
 // const stripeRouter = require('./routes/stripe.router'); 
 // const stripePaymentIntentRouter = require('./routes/stripe.paymentIntent.router'); 
+
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cors()); 
-// app.use(express.static("public")); 
+app.use(express.json()); 
+app.use(cors({ origin: true })); 
+app.use(express.static("public")); 
+app.use(stripeRoutes);
+
 // app.use(json()); 
 
 // const calculateDonationAmount = (donationTotal) => { 
@@ -27,25 +38,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   return 1400; 
 // };
 
-// app.post("/create-payment-intent", async (req, res) => { 
-//   const { items } = req.body; 
+app.get('/create-payment-intent'); 
 
-//   // create a PaymentIntent with the order amount and currency 
-//   const paymentIntent = await stripe.paymentIntents.create({ 
-//     amount: calculateOrderAmount(items), 
-//     currency: "usd", 
-//     //accepts payment methods that you enable in the Dashboard and that are compatible with this PaymentIntent’s other parameters
-//     //adjust in dashboard 
-//     automatic_payment_methods: { 
-//       enabled: true, 
-//     }, 
-//   })
-// }); 
-
-// res.send({
-//   clientSecret: paymentIntent.client_secret, 
-// }); 
-
+app.post("/create-payment-intent"); 
 
 
 // Passport Session Configuration //
