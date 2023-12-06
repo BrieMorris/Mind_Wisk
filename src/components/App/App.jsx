@@ -20,7 +20,7 @@ import OrderPage from '../OrderPage/OrderPage'
 import Gallery from '../Gallery/Gallery';
 import Footer from '../Footer/Footer';
 import Nav from '../Nav/Nav';
-
+import Cloudinary from '../Cloudinary/Cloudinay';
 import './App.css';
 import Disclaimer from '../Disclaimer/Disclaimer';
 
@@ -135,8 +135,8 @@ function App() {
             <Disclaimer />
           </Route>
 
-
-
+          <Route exact path="/cloudinary">
+            <Cloudinary/>  </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
