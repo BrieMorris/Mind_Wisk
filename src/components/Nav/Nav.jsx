@@ -1,19 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import logo from './MindWisk Brand Board (5).png';
 import './Nav.css';
 
-// ABOUT, GALLERY, DONATE, ORDER!
-
 function Nav() {
-
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">MindWisk</h2>
+        <h2 className="nav-title">
+          MindWisk
+          <img className="logo" src={logo} alt="Logo" />
+        </h2>
       </Link>
-      <div>
+      <div className="nav-links">
         <Link className="navLink" to="/about">
-          About
+          About 
+
         </Link>
 
         <Link className="navLink" to="/gallery">

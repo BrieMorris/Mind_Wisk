@@ -1,0 +1,39 @@
+.aboutcontainer {
+  font-family: "Montserrat";
+  font-size: 22px;
+  color: #787878;
+  text-align: center;
+  position: relative;
+  margin: 50px;
+}
+
+h1,
+h3 {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+
+.h1-line {
+  position: relative;
+}
+
+.h1-line::before,
+.h1-line::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  background-color: #787878;
+  top: 50%;
+}
+
+.h1-line::before {
+  left: 0;
+  margin-left: -45%;
+}
+
+.h1-line::after {
+  right: 0;
+  margin-right: -45%;
+}

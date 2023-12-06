@@ -7,21 +7,22 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+// Components
 import AboutPage from '../AboutPage/AboutPage';
 import DonationPage from '../DonationPage/DonationPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import OrderPage from '../OrderPage/OrderPage'
+import Gallery from '../Gallery/Gallery';
+import Footer from '../Footer/Footer';
+import Nav from '../Nav/Nav';
 
 import './App.css';
+import Disclaimer from '../Disclaimer/Disclaimer';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,12 +78,18 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+         <Route
+          exact path ="/gallery"
+          >
+            <Gallery />
+          </Route>
+
           <Route
             exact
             path="/login"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
               :
@@ -91,26 +98,26 @@ function App() {
             }
           </Route>
 
-          <Route
+          {/* <Route
             exact
             path="/registration"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
               // Otherwise, show the registration page
               <RegisterPage />
             }
-          </Route>
+          </Route> */}
 
           <Route
             exact
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -118,6 +125,18 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+
+          <Route exact path="/order">
+            <OrderPage />
+          </Route>
+
+          <Route exact path="/disclaimer">
+            <Disclaimer />
+          </Route>
+
+
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

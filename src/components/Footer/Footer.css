@@ -1,5 +1,16 @@
 footer {
-  margin-top: 80px;
+  margin-top: 60px;
   padding: 20px;
-  text-align: center;
+  color: white;
+  background-color: #356390;
+}
+
+.right {
+  text-align: right;
+
+}
+
+.left {
+  text-align: left;
+
 }
