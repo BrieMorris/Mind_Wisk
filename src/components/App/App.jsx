@@ -11,6 +11,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 // Components
 import AboutPage from '../AboutPage/AboutPage';
+import DonationPage from '../DonationPage/DonationPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
@@ -47,6 +48,14 @@ function App() {
             path="/about"
           >
             <AboutPage />
+          </Route>
+
+          <Route
+            // shows DonationPage at all times (logged in or not)
+            exact
+            path="/donate"
+          >
+            <DonationPage />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.

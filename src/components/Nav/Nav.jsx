@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import logo from './MindWisk Brand Board (5).png';
 import './Nav.css';
 
@@ -15,6 +16,7 @@ function Nav() {
       <div className="nav-links">
         <Link className="navLink" to="/about">
           About 
+
         </Link>
 
         <Link className="navLink" to="/gallery">
