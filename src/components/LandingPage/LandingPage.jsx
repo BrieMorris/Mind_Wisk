@@ -10,13 +10,13 @@ function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
   const history = useHistory();
 
-  // const toOrder = (event) => {
-  //   history.push('/order')
-  // }
+  const toOrder = (event) => {
+    history.push('/order')
+  }
 
-  // const toDonate = (event) => {
-  //   history.push('/donate')
-  // }
+  const toDonate = (event) => {
+    history.push('/donate')
+  }
 
 
   return (
@@ -28,7 +28,7 @@ function LandingPage() {
         Head massagers like the MindWisk are the simplest, most amazing way to
         feel good. Our first mission is to give away 1,000,000 head massagers.
       </h2>
-         <button> GET ONE FREE </button>
+         <button onClick={toOrder} className="btn" > GET ONE FREE </button>
 
 
 
@@ -78,8 +78,7 @@ function LandingPage() {
             close friends. What if we had that same giving attitude with a few
             more people. Or with our whole area. Or with everyone. We all know
             it feels good to help other people feel good. Being helped makes
-            other people want to help other people. We create more joy, which in
-            turn creates more joy. It's surprisingly nice to unexpectedly
+            other people want to help other people. We create more joy, which in turn creates more joy. It's surprisingly nice to unexpectedly
             receive something of value for free and it encourages us all to be
             more generous with everyone in our own lives. And it's so very
             simple.
@@ -95,7 +94,7 @@ function LandingPage() {
 
           <h3>Spread the joy!</h3>
           <br></br>
-          <button> Donate </button>
+          <button onClick={toDonate} className="btn" > Donate </button>
 
         </div>
       </div>

@@ -9,7 +9,7 @@ import { Elements } from "@stripe/react-stripe-js";
 // This is your test publishable API key.
 const stripePromise = loadStripe("pk_test_");
 
-export default function App() {
+function PaymentIntent() {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
@@ -52,3 +52,5 @@ appearance,
     </div>
   );
 }
+
+export default PaymentIntent;
