@@ -4,6 +4,16 @@ const router = express.Router();
 
 const stripe = new Stripe('sk_test_fill in test security key');
 
+// possibly set limits for donations or minimum based on processsing fees 
+// add front end message notfiying users 
+// const calculateDonationAmount = (amount) => {
+//     const minAmount = 5; // minimum 5 - figure out opitions to cover processing fees?
+//     const maxAmount = 100000; // maximum 10000
+//     amount = Math.max(minAmount, Math.min(maxAmount, amount)); //  value between min and max
+//     return amount;
+// };
+
+
 
 
 /**
