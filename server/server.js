@@ -16,7 +16,7 @@ const ordersRouter = require('./routes/orders.router');
 
 const galleryRouter = require('./routes/gallery.router')
 
-const adminRouter = require('./routes/admin.router')
+// const adminRouter = require('./routes/admin.router')
 
 // const adminRouter = require('./routes/admin.router')
 
@@ -38,7 +38,7 @@ app.use('/orders', ordersRouter);
 
 app.use('/api/gallery', galleryRouter);
 
-app.use('/api/admin', adminRouter)
+// app.use('/api/admin', adminRouter)
 
 
 // Serve static files
