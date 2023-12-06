@@ -1,7 +1,9 @@
 const express = require('express');
-const pool = require('../modules/pool');
-const router = express.Router();
-import express from 'express';
+const Stripe = require('stripe'); 
+const router = express.Router(); 
+
+const stripe = new Stripe('sk_test_fill in test security key'); 
+
 
 export default function createStripeRoutes(stripe) {
     const router = express.Router();
