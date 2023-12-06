@@ -6,11 +6,6 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 // CUSTOM COMPONENTS
 
 
-  // const onLogin = (event) => {
-  //   history.push('/login');
-  // };
-=======
-
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
   const history = useHistory();
@@ -27,8 +22,6 @@ function LandingPage() {
   return (
     <div className="container">
       <h1>{heading}</h1>
-
-=======
 
       <h2>Simultaneously stimulating & relaxing.</h2>
       <h2>
@@ -47,7 +40,6 @@ function LandingPage() {
           <h3>Feel Good Without Chemicals</h3>
           <p>
 
-            Benifits
             Studies have shown that massage can increase the production of
             certain chemicals in the body, including endorphins and serotonin.
             https://nccih.nih.gov/health/massage
@@ -75,9 +67,7 @@ function LandingPage() {
         </div>
         <div className="grid-col grid-col_4">
 
-          
-
-=======
+  
           <h1>Our Mission</h1>
 
           <h2>Ok, they're great. But really, why GIVE them away?</h2>
