@@ -1,15 +1,16 @@
 // DonationForm.jsx
 
 import { Card, CardContent, Typography, Grid, InputAdornment, OutlinedInput, Button } from "@mui/material";
+import { number } from "prop-types";
 import { useState } from "react";
 
 export default function DonationForm() {
-    const [amount, setAmount] = useState(Number['10']);
+    const [amount, setAmount] = useState(Number['null']);
 
-    const handleChange = (e) => {
-        setAmount(e.target.value);
+    const handleChange = (value) => {
+        setAmount(Number(value));
     }
-
+    
     return (
         <Card>
             <CardContent>
@@ -22,16 +23,16 @@ export default function DonationForm() {
                     <Grid item xs={6}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}> 
-                            <Button value= "$5" onChange={handleChange}> $5 </Button> 
+                            <Button value={amount} onClick={() => handleChange("5")}> $5 </Button> 
                             </Grid>
                             <Grid item xs={12}> 
-                            <Button value="$10" onChange={handleChange}> $10 </Button>
+                            <Button value={amount} onClick={() => handleChange("10")}> $10 </Button>
                             </Grid> 
                             <Grid item xs={12}> 
-                            <Button value= "$15" onChange={handleChange}> $15 </Button> 
+                            <Button value={amount} onClick={() => handleChange("15")} > $15 </Button> 
                             </Grid> 
                             <Grid item xs={12}> 
-                            <Button value="$20" onChange={handleChange}> $20 </Button>    
+                            <Button value={amount} onClick={() => handleChange("20")}> $20 </Button>    
                             </Grid> 
                             <Grid item xs={12}>
                                 <OutlinedInput
