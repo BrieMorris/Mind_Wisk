@@ -18,18 +18,18 @@ const router = express.Router();
 // };
 
 // Middleware to check if the user is authenticated and authorized
-const checkAuthentication = (req, res, next) => {
-  if (!req.isAuthenticated() || req.user.username !== 'User1') {
-    return res.status(403).send('Not authorized');
-  }
-  next();
-};
+// const checkAuthentication = (req, res, next) => {
+//   if (!req.isAuthenticated() || req.user.username !== 'User1') {
+//     return res.status(403).send('Not authorized');
+//   }
+//   next();
+// };
 
-// Endpoint for the button action
-router.post('/button-action', checkAuthentication, (req, res) => {
-  // Perform the action here
-  res.send('Action completed successfully');
-});
+// // Endpoint for the button action
+// router.post('/button-action', checkAuthentication, (req, res) => {
+//   // Perform the action here
+//   res.send('Action completed successfully');
+// });
 
 
 

@@ -18,27 +18,60 @@ function LandingPage() {
   //   history.push('/donate')
   // }
 
+
+
   const user = useSelector(state => state.user);
   const isLoggedIn = Object.keys(user).length > 0;
 
   const levels = ["Insufficient", "Low", "Plenty"];
 
-// Initialize state from local storage or default to 0
-const [levelIndex, setLevelIndex] = useState(() => {
-  const savedIndex = localStorage.getItem("levelIndex");
-  return savedIndex !== null ? Number(savedIndex) : 0;
-});
+// // Initialize state from local storage or default to 0
+// const [levelIndex, setLevelIndex] = useState(() => {
+
+//   const savedIndex = localStorage.getItem("levelIndex");
+
+//   return savedIndex !== null ? Number(savedIndex) : 0;
+// });
+
+const [levelIndex, setLevelIndex] = useState(0);
+
 
 
 useEffect(() => {
-  // Update local storage when levelIndex changes
-  localStorage.setItem("levelIndex", levelIndex);
-}, [levelIndex]);
+  // Fetch the initial level index from the server
+  fetch('/api/getLevelIndex')
+    .then((response) => response.json())
+    .then((data) => setLevelIndex(data.levelIndex));
+}, []);
+
 
 
 const handleButtonClick = () => {
-  setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+  console.log('Button Clicked');
+
+  // Update the level index on the server
+  fetch('/api/updateLevelIndex', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ newLevelIndex: (levelIndex + 1) % levels.length }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Server Response', data);
+      if (data.success) {
+        // Update the level index on the client
+        setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+      }
+    });
 };
+
+
+
+// const handleButtonClick = () => {
+//   setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+// };
 
   return (
     <div className="container">

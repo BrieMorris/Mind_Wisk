@@ -31,6 +31,25 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// Variable to store the levelIndex on the server
+let levelIndex = 0;
+
+app.get('/api/getLevelIndex', (req, res) => {
+  console.log('GET /api/getLevelIndex', levelIndex);
+
+  res.json({ levelIndex });
+});
+
+app.post('/api/updateLevelIndex', (req, res) => {
+  const { newLevelIndex } = req.body;
+  console.log('POST /api/updateLevelIndex', newLevelIndex);
+  levelIndex = newLevelIndex;
+  res.json({ success: true });
+});
+
+
+
 /* Routes */
 app.use('/api/user', userRouter);
 
