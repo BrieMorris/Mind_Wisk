@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -21,6 +21,45 @@ function LandingPage() {
 
 
   const user = useSelector(state => state.user);
+  const isLoggedIn = Object.keys(user).length > 0;
+
+  const levels = ["Insufficient", "Low", "Plenty"];
+
+const [levelIndex, setLevelIndex] = useState(0);
+
+
+useEffect(() => {
+  // Fetch the initial level index from the server
+  fetch('/api/getLevelIndex')
+    .then((response) => response.json())
+    .then((data) => setLevelIndex(data.levelIndex));
+}, []);
+
+
+
+const handleButtonClick = () => {
+  console.log('Button Clicked');
+
+  // Update the level index on the server
+  fetch('/api/updateLevelIndex', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ newLevelIndex: (levelIndex + 1) % levels.length }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Server Response', data);
+      if (data.success) {
+        // Update the level index on the client
+        setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+      }
+    });
+};
+
+
+
 
 
   return (
@@ -84,9 +123,25 @@ function LandingPage() {
           </p>
           <br></br>
         </div>
-        <h3>Spread the joy!</h3>
-        <br></br>
-        <button> Donate </button>
+        {/* <div className="donatecontainer"> */}
+        {/* Progress Bar */}
+        {/* Update ProgressBar level here */}
+        {/*
+          <ProgressBar level="Insufficient" />
+          ^ Will relocate switch once we have Admin Page ^ */}
+
+        <div className="donatecontainer">
+          <ProgressBar level={levels[levelIndex]} />
+
+          <h3>Spread the joy!</h3>
+          <br></br>
+          {/* Conditionally render the button if the user is logged in */}
+        {isLoggedIn && (
+          <button onClick={handleButtonClick}>Change Level</button>
+        )}
+          <br></br>
+          <button> Donate </button>
+        </div>
       </div>
     </div>
   );
