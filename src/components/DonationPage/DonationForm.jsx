@@ -8,7 +8,8 @@ export default function DonationForm() {
 
     const handleChange = (value) => {
         setAmount(Number(value));
-    }
+        dispatch({ type: 'TEMP_STORE_AMOUNT', payload: amount })
+    }; 
 
     return (
         <Card>
