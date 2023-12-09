@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 
 // For grid view of gallery - still need to download material ui 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#d9d9d9' : '#1f4a43',
+  backgroundColor: theme.palette.mode === 'dark' ? '#d9d9d9' : '#d9d9d9',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',

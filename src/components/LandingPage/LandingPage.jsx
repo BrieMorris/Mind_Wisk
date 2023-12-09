@@ -6,17 +6,19 @@ import LoginPage from "../LoginPage/LoginPage";
 import { useSelector } from "react-redux";
 // CUSTOM COMPONENTS
 
+
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
   const history = useHistory();
 
-  // const toOrder = (event) => {
-  //   history.push('/order')
-  // }
+  const toOrder = (event) => {
+    history.push('/order')
+  }
 
-  // const toDonate = (event) => {
-  //   history.push('/donate')
-  // }
+  const toDonate = (event) => {
+    history.push('/donate')
+  }
+
 
 
 
@@ -71,6 +73,8 @@ const handleButtonClick = () => {
         Head massagers like the MindWisk are the simplest, most amazing way to
         feel good. Our first mission is to give away 1,000,000 head massagers.
       </h2>
+         <button onClick={toOrder} className="btn" > GET ONE FREE </button>
+
 
 
       <div className="grid">
@@ -80,9 +84,11 @@ const handleButtonClick = () => {
 
           <h3>Feel Good Without Chemicals</h3>
           <p>
+
             Studies have shown that massage can increase the production of
             certain chemicals in the body, including endorphins and serotonin.
             https://nccih.nih.gov/health/massage
+
 
           </p>
           <br />
@@ -105,6 +111,8 @@ const handleButtonClick = () => {
           </p>
         </div>
         <div className="grid-col grid-col_4">
+
+  
           <h1>Our Mission</h1>
 
           <h2>Ok, they're great. But really, why GIVE them away?</h2>
@@ -115,8 +123,7 @@ const handleButtonClick = () => {
             close friends. What if we had that same giving attitude with a few
             more people. Or with our whole area. Or with everyone. We all know
             it feels good to help other people feel good. Being helped makes
-            other people want to help other people. We create more joy, which in
-            turn creates more joy. It's surprisingly nice to unexpectedly
+            other people want to help other people. We create more joy, which in turn creates more joy. It's surprisingly nice to unexpectedly
             receive something of value for free and it encourages us all to be
             more generous with everyone in our own lives. And it's so very
             simple.
@@ -135,12 +142,17 @@ const handleButtonClick = () => {
 
           <h3>Spread the joy!</h3>
           <br></br>
+
           {/* Conditionally render the button if the user is logged in */}
         {isLoggedIn && (
           <button onClick={handleButtonClick}>Change Level</button>
         )}
           <br></br>
           <button> Donate </button>
+
+          <button onClick={toDonate} className="btn" > Donate </button>
+
+
         </div>
       </div>
     </div>

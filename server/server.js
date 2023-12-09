@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+
 const { authUser } = require('./modules/basicAuth')
+
+const cors = require("cors"); 
+
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
@@ -11,6 +15,13 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+
+
+// const ordersRouter = require('./routes/orders.router');
+
+// const galleryRouter = require('./routes/gallery.router')
+
+const stripePaymentIntentRouter = require('./routes/stripePaymentIntent.router.js'); 
 
 const ordersRouter = require('./routes/orders.router');
 
@@ -28,6 +39,7 @@ app.use(sessionMiddleware);
 // start up passport sessions
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 // Variable to store the levelIndex on the server
@@ -48,8 +60,19 @@ app.post('/api/updateLevelIndex', (req, res) => {
 
 
 
+//CORS 
+app.use(cors({ origin: true })); 
+
+
 /* Routes */
 app.use('/api/user', userRouter);
+
+
+// app.use('/orders', ordersRouter);
+
+// app.use('/api/gallery', galleryRouter);
+
+app.use('/api/create-payment-intent', stripePaymentIntentRouter)
 
 app.use('/orders', ordersRouter);
 
