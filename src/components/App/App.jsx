@@ -14,6 +14,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import DonationPage from '../DonationPage/DonationPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import OrderPage from '../OrderPage/OrderPage'
@@ -78,8 +79,8 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-         <Route
-          exact path ="/gallery"
+          <Route
+            exact path="/gallery"
           >
             <Gallery />
           </Route>
@@ -98,7 +99,7 @@ function App() {
             }
           </Route>
 
-          {/* <Route
+          <Route
             exact
             path="/registration"
           >
@@ -110,7 +111,7 @@ function App() {
               // Otherwise, show the registration page
               <RegisterPage />
             }
-          </Route> */}
+          </Route>
 
           <Route
             exact
@@ -130,6 +131,11 @@ function App() {
           <Route exact path="/order">
             <OrderPage />
           </Route>
+
+          <Route exact path="/LandingPage">
+            <LandingPage />
+          </Route>
+
 
           <Route exact path="/disclaimer">
             <Disclaimer />
