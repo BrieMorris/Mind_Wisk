@@ -8,7 +8,7 @@ const router = express.Router();
  * POST for uploading image to cloudinary
  */
 router.post('/', (req, res) => {
-  console.log(req.body);
+  console.log('req body' , req.body);
   const imageData = req.body
   let postUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
   axios.post(postUrl, imageData).then(response => {
@@ -20,5 +20,7 @@ router.post('/', (req, res) => {
   })
   
 });
+
+
 
 module.exports = router;

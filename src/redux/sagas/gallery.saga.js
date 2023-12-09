@@ -23,9 +23,15 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
       formData.append('file', action.fileToUpload);
       formData.append('upload_preset', process.env.REACT_APP_PRESET);
       let postUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+
       const response = yield axios.post(postUrl, formData);
+      console.log('Cloudinary response:', response.data);
       yield axios.post('/api/gallery', { ...action.payload, photo: response.data.secure_url});
       action.toGallery()
+      console.log('payload', action.payload);
+      
+   
+       //create a new post request with url I got from cloudinary and description
   } catch (error) {
       console.log('error posting observation', error);
   }     

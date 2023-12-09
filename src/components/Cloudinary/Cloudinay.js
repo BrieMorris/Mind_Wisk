@@ -5,10 +5,10 @@ import Button from '@mui/material/Button';
 
 //the Cloudinary function allows the admin to upload photos for the gallery
 function Cloudinary(props) {
-  const store = useSelector((store) => store);
+  // const store = useSelector((store) => store);
   const history = useHistory();
   const dispatch = useDispatch();
-  // const {id} = useParams();
+  const {id} = useParams();
   
   const [image, setImage] = useState();
   const [description, setdescription] = useState('');
@@ -45,7 +45,7 @@ function Cloudinary(props) {
 
   return (
     <div className="container">
-    <h1>ADD MindWisk Photo:</h1>
+    <h1>Add MindWisk Photo:</h1>
 
     <form onSubmit = {addPhoto}>
     <input  type="file" 
@@ -58,7 +58,7 @@ function Cloudinary(props) {
     <textarea onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
     <br/>  <br/>
     <div>
-    <Button onClick={handleOpen}>ADD PHOTO</Button>
+    <Button onClick={addPhoto}>ADD PHOTO</Button>
     </div>
     </form>
     </div>

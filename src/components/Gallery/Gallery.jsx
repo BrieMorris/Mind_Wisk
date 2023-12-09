@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Cloudinary from '../Cloudinary/Cloudinay';
 
 // For grid view of gallery - still need to download material ui 
 const Item = styled(Paper)(({ theme }) => ({
@@ -65,6 +66,7 @@ function Gallery(props) {
         })}
          </Grid>
           </Box>
+          <Cloudinary/>
     </div>
   );
 }
