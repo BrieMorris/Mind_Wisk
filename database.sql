@@ -42,9 +42,8 @@ CREATE TABLE "donations" (
 "donationamount" int
 );
 
-INSERT INTO "user"("username","password")
-VALUES ('admin','123456')
-
+INSERT INTO "user" ("username", "password")
+VALUES ('admin','123456');
 
 
 INSERT INTO "images" ("image", "description")

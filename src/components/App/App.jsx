@@ -13,6 +13,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import OrderPage from '../OrderPage/OrderPage'
@@ -49,6 +50,8 @@ function App() {
             <AboutPage />
           </Route>
 
+
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -69,8 +72,8 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-         <Route
-          exact path ="/gallery"
+          <Route
+            exact path="/gallery"
           >
             <Gallery />
           </Route>
@@ -89,7 +92,7 @@ function App() {
             }
           </Route>
 
-          {/* <Route
+          <Route
             exact
             path="/registration"
           >
@@ -101,7 +104,7 @@ function App() {
               // Otherwise, show the registration page
               <RegisterPage />
             }
-          </Route> */}
+          </Route>
 
           <Route
             exact
@@ -117,12 +120,15 @@ function App() {
             }
           </Route>
 
-<Route>
-  <LandingPage/>
-</Route>
+
           <Route exact path="/order">
             <OrderPage />
           </Route>
+
+          <Route exact path="/LandingPage">
+            <LandingPage />
+          </Route>
+
 
           <Route exact path="/disclaimer">
             <Disclaimer />

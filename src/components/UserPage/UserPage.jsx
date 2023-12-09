@@ -94,7 +94,7 @@ function UserPage() {
       <div className="donatecontainer">
         <ProgressBar level={levels[levelIndex]} />
 
-        <h3>Spread the joy!</h3>
+        <h3>Admin Controls</h3>
         <br />
         {/* Conditionally render the button if the user is logged in */}
         {isLoggedIn && (
