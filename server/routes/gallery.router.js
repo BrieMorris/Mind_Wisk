@@ -40,4 +40,18 @@ router.post('/', (req, res) => {
 
 });
 
+// delete route for admin to delete images from galleru
+router.delete('/:id', (req, res) => {
+  let id = req.params.id
+  const queryText = `DELETE FROM images WHERE id = $1;`
+  pool.query(queryText, [id])
+  .then(result => {
+    res.sendStatus(201);
+   })
+   .catch(err => {
+    console.log('ERROR: deleting image', err);
+    res.sendStatus(500)
+   })
+})
+
 module.exports = router;

@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Cloudinary from '../Cloudinary/Cloudinay';
+
 
 // For grid view of gallery - still need to download material ui 
 const Item = styled(Paper)(({ theme }) => ({
@@ -24,7 +24,8 @@ function Gallery(props) {
   const [heading, setHeading] = useState('MindWisk Gallery');
   const history = useHistory();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
+  // const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
+  const isLoggedIn = useSelector(store => store.galleryReducer.authReducer);
   const galleryImages = useSelector(store => store.galleryReducer.userGallery);
 
   console.log('gallery images', galleryImages);
@@ -65,7 +66,7 @@ function Gallery(props) {
           ))}
         </Grid>
       </Box>
-      <Cloudinary />
+     
     </div>
   );
 }

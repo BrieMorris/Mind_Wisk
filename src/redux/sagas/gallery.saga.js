@@ -38,16 +38,27 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
   };
 
 
-
-
-
+  // saga function to delete images
+  function* deleteImage(action) {
   
+    console.log('action', action.payload);
+    try {
+      const deletePic = 
+      yield axios.delete('/api/content/'+ action.payload.posterId);
+      console.log('deletePic', deletePic.data);
+   
+    } catch (error) {
+        console.log('error deleting image', error);
+    }    
+  }
+
 
    //create a new post request with url I got from cloudinary and description
 
   function* gallerySaga() {
     yield takeEvery ('FETCH_ALL_IMAGES', userGallery);
-    yield takeEvery ('ADD_PHOTO', addPhoto)
+    yield takeEvery ('ADD_PHOTO', addPhoto);
+    yield takeEvery ('DELETE_IMAGE', deleteImage);
   }
   
 
