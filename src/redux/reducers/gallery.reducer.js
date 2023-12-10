@@ -11,6 +11,8 @@ const userGallery = (state = [], action ) => {
   }
 };
 
+
+
 export default combineReducers({
   userGallery
 });

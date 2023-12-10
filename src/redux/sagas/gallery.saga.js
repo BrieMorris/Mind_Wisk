@@ -26,17 +26,24 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
       const response = yield axios.post(postUrl, formData);
       console.log('Cloudinary response:', response.data);
+
       yield axios.post('/api/gallery', { ...action.payload, photo: response.data.secure_url});
       action.toGallery()
       console.log('payload', action.payload);
       
-   
-       //create a new post request with url I got from cloudinary and description
   } catch (error) {
       console.log('error posting observation', error);
   }     
        
-  }
+  };
+
+
+
+
+
+  
+
+   //create a new post request with url I got from cloudinary and description
 
   function* gallerySaga() {
     yield takeEvery ('FETCH_ALL_IMAGES', userGallery);

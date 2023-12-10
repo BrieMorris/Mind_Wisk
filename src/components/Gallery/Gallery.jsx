@@ -32,6 +32,8 @@ function Gallery(props) {
     dispatch({ type: 'FETCH_ALL_IMAGES'})
   }, []);
 
+  console.log('Gallery Images:', galleryImages);
+
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
     img.width = newWidth;

@@ -25,14 +25,16 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
 
-  photoInfo = req.body
-  console.log(req.body);
+  let photoInfo = req.body
+  console.log('gallery post ', req.body);
   const queryText = `INSERT INTO "images" ("image", "description")
   VALUES ($1,$2);`
-  pool.query(queryText, [photoInfo.image, photoInfo.description])
-  .then[() => res.sendStatus(201)]
+  pool.query(queryText, [photoInfo.photo, photoInfo.description])
+  .then(result => {
+    res.sendStatus(201);
+   })
   .catch((err) => {
-    log(`Error adding image: ${err}`);
+    console.log(`Error adding image: ${err}`);
     res.sendStatus(500);
   })
 
