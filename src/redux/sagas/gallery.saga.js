@@ -44,9 +44,9 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
     console.log('action', action.payload);
     try {
       const deletePic = 
-      yield axios.delete('/api/content/'+ action.payload.posterId);
+      yield axios.delete('/api/gallery/'+ action.payload.imageId);
       console.log('deletePic', deletePic.data);
-   
+      yield put({ type: 'FETCH_ALL_IMAGES'});
     } catch (error) {
         console.log('error deleting image', error);
     }    

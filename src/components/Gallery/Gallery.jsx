@@ -24,7 +24,6 @@ function Gallery(props) {
   const [heading, setHeading] = useState('MindWisk Gallery');
   const history = useHistory();
   const dispatch = useDispatch();
-  // const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
   const isLoggedIn = useSelector(store => store.galleryReducer.authReducer);
   const galleryImages = useSelector(store => store.galleryReducer.userGallery);
 
@@ -32,6 +31,7 @@ function Gallery(props) {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_IMAGES'})
+    console.log('logged in' , isLoggedIn);
   }, [dispatch]);
 
   const handleDelete = (imageId) => {
@@ -58,9 +58,9 @@ function Gallery(props) {
               <Item>
                 <img src={photo.image} onLoad={(event) => resizeImg(event.target, 200)} alt="MindWisk Photo" />
                 <h3>{photo.description}</h3>
-                {isLoggedIn && (
+                {isLoggedIn.isLoggedIn && 
                   <button onClick={() => handleDelete(photo.id)}>Delete</button>
-                )}
+                }
               </Item>
             </Grid>
           ))}
