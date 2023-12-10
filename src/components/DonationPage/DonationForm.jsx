@@ -1,14 +1,14 @@
-// DonationForm.jsx
-
 import { Card, CardContent, Typography, Grid, InputAdornment, OutlinedInput, Button } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function DonationForm() {
     const [amount, setAmount] = useState(Number[null]);
+    const dispatch = useDispatch(); 
 
     const handleChange = (value) => {
         setAmount(Number(value));
-        dispatch({ type: 'TEMP_STORE_AMOUNT', payload: amount })
+        dispatch({ type: 'TEMP_STORE_AMOUNT', payload: Number(value) })
     }; 
 
     return (
