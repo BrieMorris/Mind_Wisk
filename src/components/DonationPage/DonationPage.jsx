@@ -16,7 +16,7 @@ import AddressForm from './AddressForm';
 import Review from './Review';
 import DonationForm from './DonationForm';
 import PaymentIntent from './PaymentIntent'; // Assume this is your updated PaymentIntent component
-
+import "./DonationPage.css"; 
 const steps = ['Amount Selection', 'Donation Information', 'Payment details', 'Review your Donation Info'];
 
 function getStepContent(step, handleAmountChange, amount) {
@@ -68,10 +68,16 @@ export default function DonationPage() {
           </Typography>
         </Toolbar>
       </AppBar> */}
+
+
+      <div id='mpContainerOne'>
+        <img src='./basicSMWoakjpg.jpg' alt='Silver MindWisk' />
+      </div>
+
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            MindWisk Donation 
+            MindWisk Donation
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { useSelector } from "react-redux";
 
 
 
@@ -11,6 +12,9 @@ const stripePromise = loadStripe("pk_test_");
 
 export default function App() {
   const [clientSecret, setClientSecret] = useState("");
+
+  //Gets the donation amount from the Redux store 
+  const donationAmount = useSelector((store) => store.donationReducer.donationAmount);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -27,20 +31,21 @@ export default function App() {
         console.error("Error creating payment intent:", error);
       }
     };
-  
-    // Calls the function with the actual amount 
-    createPaymentIntent(yourAmountVariable); // 'yourAmountVariable' gets replaces with amount value 
-  
-  }, []);
+    // Check if donation amount is available and then call the function with the actual amount
+    if (donationAmount) {
+      createPaymentIntent(donationAmount * 100); // Multiplying by 100 to convert to cents as Stripe expects amounts in cents
+    }
+  }, [donationAmount]); // Add donationAmount as a dependency
 
-const appearance = {
-theme: 'stripe',
-};
-const options = {
-// passing the client secret obtained from the server
-clientSecret: '{{CLIENT_SECRET}}',
-appearance,
-};
+  const appearance = {
+    theme: 'stripe',
+  };
+
+  const options = {
+    // passing the client secret obtained from the server
+    clientSecret: '{{CLIENT_SECRET}}',
+    appearance,
+  };
 
   return (
     <div className="App">
@@ -51,4 +56,5 @@ appearance,
       )}
     </div>
   );
-}
+
+};
