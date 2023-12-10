@@ -26,7 +26,7 @@ const stripePaymentIntentRouter = require('./routes/stripePaymentIntent.router.j
 const ordersRouter = require('./routes/orders.router');
 
 const galleryRouter = require('./routes/gallery.router')
-
+const cloudinaryRouter = require('./routes/cloudinary.router')
 
 
 // Body parser middleware
@@ -77,7 +77,7 @@ app.use('/api/create-payment-intent', stripePaymentIntentRouter)
 app.use('/orders', ordersRouter);
 
 app.use('/api/gallery', galleryRouter);
-
+app.use('api/cloudinary' , cloudinaryRouter);
 
 
 
