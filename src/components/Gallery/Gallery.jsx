@@ -24,15 +24,19 @@ function Gallery(props) {
   const [heading, setHeading] = useState('MindWisk Gallery');
   const history = useHistory();
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
   const galleryImages = useSelector(store => store.galleryReducer.userGallery);
 
   console.log('gallery images', galleryImages);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_IMAGES'})
-  }, []);
+  }, [dispatch]);
 
-  console.log('Gallery Images:', galleryImages);
+  const handleDelete = (imageId) => {
+    // Dispatch an action to delete the image with the specified imageId
+    dispatch({ type: 'DELETE_IMAGE', payload: { imageId } });
+  };
 
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
@@ -43,34 +47,29 @@ function Gallery(props) {
 
   return (
     <div className="container">
-      {/* add funderaising bar here  */}
+      {/* add fundraising bar here */}
       <h2>{heading}</h2>
-      <br/>  <br/>
-      {console.log('gallery images', galleryImages)}
-        <Box sx={{ flexGrow: 1 }}>
+      <br /> <br />
+      <Box sx={{ flexGrow: 1 }}>
         <Grid container direction="row" spacing={2}>
-              
-        {galleryImages.map(photo => {
-            return (
-            <div key={photo.id} >
-              {console.log('photo id', photo.id)}
-              
-              <Grid item xs={10} >
-                <Item>
-              <img src={photo.image} onLoad={(event) => resizeImg(event.target, 200)} alt="MindWisk Photo" />
-              <h3>{photo.description}</h3>
-              <br/>  <br/>
-            
+          {galleryImages.map(photo => (
+            <Grid item xs={10} key={photo.id}>
+              <Item>
+                <img src={photo.image} onLoad={(event) => resizeImg(event.target, 200)} alt="MindWisk Photo" />
+                <h3>{photo.description}</h3>
+                {isLoggedIn && (
+                  <button onClick={() => handleDelete(photo.id)}>Delete</button>
+                )}
               </Item>
             </Grid>
-            </div>
-            )
-        })}
-         </Grid>
-          </Box>
-          <Cloudinary/>
+          ))}
+        </Grid>
+      </Box>
+      <Cloudinary />
     </div>
   );
 }
+
+ 
 
 export default Gallery;
