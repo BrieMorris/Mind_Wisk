@@ -21,14 +21,14 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h1>{heading}</h1>
+      {/* <h1>{heading}</h1> */}
 
       <h2>Simultaneously stimulating & relaxing.</h2>
       <h2>
         Head massagers like the MindWisk are the simplest, most amazing way to
         feel good. Our first mission is to give away 1,000,000 head massagers.
       </h2>
-         <button onClick={toOrder} className="btn" > GET ONE FREE </button>
+         <button onClick={toOrder} className="btn" > GET ONE FREE! </button>
 
 
 

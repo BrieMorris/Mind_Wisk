@@ -80,7 +80,10 @@ Grid
 
 }
 
-
+.container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #708090;
+}
 
 /* Progress Bar, "Spreading thhe joy!", and Donate button */
 .donatecontainer {
