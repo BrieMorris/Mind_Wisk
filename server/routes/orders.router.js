@@ -19,5 +19,20 @@ router.post('/', (req, res) => {
     });
 });
 
+// GET endpoint to retrieve all user data
+router.get('/', (req, res) => {
+  const queryText = `SELECT * FROM "orders";`;
+  console.log('query', queryText);
+  pool.query(queryText)
+    .then((result) => {
+      // Send the retrieved data as a JSON response
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.error('Error fetching user data:', err);
+      res.sendStatus(500);
+    });
+});
+
 
 module.exports = router;
