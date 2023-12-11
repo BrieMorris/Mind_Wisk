@@ -27,7 +27,7 @@ function Footer() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-};
+  };
 
   return (
     <footer>
@@ -52,7 +52,22 @@ function Footer() {
             <Typography variant="body2">MindWisk@gmail.com</Typography>
             <br />
             <Typography variant="body2">Follow Us!</Typography>
-            <FacebookIcon /> <InstagramIcon /> <ClearIcon /> <YouTubeIcon /> 
+
+            <a href="https://www.facebook.com/MindWisk" target="_blank" rel="noopener noreferrer">
+              <FacebookIcon />
+            </a>
+
+            <a href="https://www.instagram.com/mindwiskproject" target="_blank" rel="noopener noreferrer">
+              <InstagramIcon />
+            </a>
+
+            <a href="https://twitter.com/MindWiskProject" target="_blank" rel="noopener noreferrer">
+              <ClearIcon />
+            </a>
+
+            <a href="https://www.youtube.com/@MindWisk" target="_blank" rel="noopener noreferrer">
+              <YouTubeIcon />
+            </a>
             <br />
             <Button variant="outlined" onClick={admin} style={{ color: 'white' }}>
               Admin
