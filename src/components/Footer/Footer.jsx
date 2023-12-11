@@ -3,7 +3,13 @@ import './Footer.css';
 import logo from './MindWisk Brand Board (5).png';
 import { useHistory } from 'react-router-dom';
 import { Button, Typography, Grid } from '@mui/material';
-import FacebookLogo from './FacebookLogo';
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import ClearIcon from '@mui/icons-material/Clear';
+
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const history = useHistory();
@@ -43,7 +49,7 @@ function Footer() {
             <Typography variant="body2">MindWisk@gmail.com</Typography>
             <br />
             <Typography variant="body2">Social Media Links</Typography>
-            <FacebookLogo />
+            <FacebookIcon /> <InstagramIcon /> <ClearIcon /> <YouTubeIcon /> 
             <br />
             <Button variant="outlined" onClick={admin} style={{ color: 'white' }}>
               Admin
