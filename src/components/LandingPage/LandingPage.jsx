@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import trioImage from "./trio.png"
 
 // CUSTOM COMPONENTS
 
@@ -39,10 +40,12 @@ function LandingPage() {
       <br></br>
       <br></br>
       <br></br>
+     
       <div className="benefitcontainer">
         <h2>Benefits</h2>
       </div>
-      <br />
+      <img src={trioImage} alt="Art" className="trioImage" />
+      
 <div className="feelgoodheader">
       <h3>Feel Good Without Chemicals</h3>
       </div>
@@ -60,25 +63,32 @@ function LandingPage() {
       </p>
       </div>
 
-      <br />
-
+      
+<div className="ancientwisdomheader">
       <h3>Ancient Wisdom</h3>
+      </div>
+      <div className="ancientwisdomcontainer">
       <p>
         The people of India have incorporated head massage into therapeutic
-        practice for about 5,000 years as part of Ayurveda, a holistic
+        practice for about 5,000 years as part of Ayurveda, a holistic medicine.
       </p>
+      </div>
       <br />
-
+<div className="growhairheader">
       <h3>Grow Hair & Detoxify</h3>
+      </div>
+      <div className="growhaircontainer">
       <p>
         Grow hair and detoxify Head massage is known to increase oxygen to the
         scalp and hair follicles which stimulates hair growth. It helps detoxify
         the body by stimulating lymphatic drainage and blood flow to the neck
         thus removing waste products from the body.
       </p>
-
+      </div>
+      <div className="missionheader">
       <h1>Our Mission</h1>
-
+      </div>
+      <div className="missioncontainer">
       <h2>Ok, they're great. But really, why GIVE them away?</h2>
 
       <p>
@@ -92,8 +102,11 @@ function LandingPage() {
         value for free and it encourages us all to be more generous with
         everyone in our own lives. And it's so very simple.
       </p>
+      </div>
       <br></br>
-
+      <div className="spreadthejoy">
+      <h3>Spread the joy!</h3>
+      </div>
       <div className="donatecontainer">
         {/* Progress Bar */}
         {/* Update ProgressBar level here */}
@@ -101,7 +114,7 @@ function LandingPage() {
         <ProgressBar level="Low" />
         {/* ^ Will relocate switch once we have Admin Page ^ */}
 
-        <h3>Spread the joy!</h3>
+        
         <br></br>
         <button onClick={toDonate} className="btn">
           {" "}

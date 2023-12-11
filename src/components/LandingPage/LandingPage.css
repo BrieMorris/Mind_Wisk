@@ -12,11 +12,7 @@
   margin: 50px 80px;
 }
 
-
-
-
 /** Benefits */
-
 
 .benefitcontainer {
   font-size: 25px;
@@ -25,6 +21,7 @@
   display: inline-block;
   margin: 0 auto; /* Center the container */
   width: 80%; /* Set a specific width for the container */
+  margin-bottom: 5px;
 }
 
 .benefitcontainer::before,
@@ -45,9 +42,6 @@
   right: -60px; /* Position the line relative to the right side */
   width: calc(50% - 40px); /* Adjust the length of the line */
 }
-
-
-
 
 /* * */
 
@@ -72,5 +66,72 @@
   font-size: 18px;
   text-align: center;
   margin: 50px;
-  margin: 50px 80px;
+  margin: 30px 80px;
+}
+
+.ancientwisdomheader {
+  font-size: 25px;
+}
+
+.ancientwisdomcontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
+}
+
+.growhairheader {
+  font-size: 25px;
+}
+
+.growhaircontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
+}
+
+.missionheader {
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* Center the container */
+  width: 80%; /* Set a specific width for the container */
+}
+
+.missionheader::before,
+.missionheader::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #787878;
+  top: 50%;
+}
+
+.missionheader::before {
+  left: -60px; /* Position the line relative to the left side */
+  width: calc(42% - 40px); /* Adjust the length of the line */
+}
+
+.missionheader::after {
+  right: -60px; /* Position the line relative to the right side */
+  width: calc(42% - 40px); /* Adjust the length of the line */
+}
+
+.missioncontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
+}
+
+.spreadthejoy {
+  font-size: 35px;
+  text-align: center;
+}
+
+.trioImage {
+  width: 70%;
+  height: auto;
 }
