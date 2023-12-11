@@ -2,7 +2,8 @@ const express = require('express');
 const Stripe = require('stripe');
 const router = express.Router();
 
-const stripe = new Stripe('sk_test_fill in test security key');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// const stripe = new Stripe('sk_test_fill in test security key');
 
 // possibly set limits for donations or minimum based on processsing fees 
 // add front end message notfiying users 
@@ -16,13 +17,13 @@ const stripe = new Stripe('sk_test_fill in test security key');
 
 
 
-/**
- * GET route template
- */
-router.get('/create-payment-intent', (req, res) => {
-    // GET route code here
-    res.send('Hello World!');
-});
+// /**
+//  * GET route template
+//  */
+// router.get('/create-payment-intent', (req, res) => {
+//     // GET route code here
+//     res.send('Hello World!');
+// });
 
 /**
  * POST route template
