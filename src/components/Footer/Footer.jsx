@@ -3,6 +3,7 @@ import './Footer.css';
 import logo from './MindWisk Brand Board (5).png';
 import { useHistory } from 'react-router-dom';
 import { Button, Typography, Grid } from '@mui/material';
+import FacebookLogo from './FacebookLogo';
 
 function Footer() {
   const history = useHistory();
@@ -42,6 +43,7 @@ function Footer() {
             <Typography variant="body2">MindWisk@gmail.com</Typography>
             <br />
             <Typography variant="body2">Social Media Links</Typography>
+            <FacebookLogo />
             <br />
             <Button variant="outlined" onClick={admin} style={{ color: 'white' }}>
               Admin
