@@ -6,9 +6,19 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
-
+import ReCAPTCHA from "react-google-recaptcha";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function OrderPage() {
+
+  const [isRecaptchaVerified, setRecaptchaVerified] = useState(false);
+
+  const onRecaptchaChange = (value) => {
+    // Set the state to true when ReCAPTCHA is successfully completed
+    setRecaptchaVerified(true);
+  };
+
+
+  const history = useHistory()
 
   // Define state hooks for each form field
   const [firstname, setFirstName] = useState('');
@@ -24,31 +34,38 @@ function OrderPage() {
 
   // Function to handle form submission
   const submitOrder = () => {
-    const orderInfo = {
-      firstname,
-      lastname,
-      address,
-      address2,
-      city,
-      email,
-      state,
-      zipcode,
-      country
-    };
+    if (isRecaptchaVerified) {
+      const orderInfo = {
+        firstname,
+        lastname,
+        address,
+        address2,
+        city,
+        email,
+        state,
+        zipcode,
+        country
+      };
 
 
-    console.log("Info", orderInfo);
-    axios.post('/orders', orderInfo)
-      .then((response) => {
-        console.log('Order submitted:', response.data);
+      console.log("Info", orderInfo);
+      axios.post('/orders', orderInfo)
+        .then((response) => {
+          console.log('Order submitted:', response.data);
 
-        // Handle successful submission, e.g., show a success message or redirect
-      })
-      .catch((error) => {
-        console.error('Error submitting order:', error);
-        // Handle errors, e.g., show an error message
-      });
-  };
+          alert('Thank you for placing an order');
+          history.push('/donate');
+          // Handle successful submission, e.g., show a success message or redirect
+        })
+        .catch((error) => {
+          console.error('Error submitting order:', error);
+          // Handle errors, e.g., show an error message
+        });
+    } else {
+      // If ReCAPTCHA is not verified, show an error message or take appropriate action
+      console.error("ReCAPTCHA verification failed. Please complete the ReCAPTCHA.");
+    }
+  }
 
 
 
@@ -161,18 +178,18 @@ function OrderPage() {
         </Grid>
 
         <Grid item xs={12}>
-      <TextField
-        required
-        id="email"
-        name="email"
-        label="Email"
-        fullWidth
-        autoComplete="email"
-        variant="standard"
-        value={email} // Bind to state
-        onChange={(e) => setEmail(e.target.value)} // Update state on change
-      />
-    </Grid>
+          <TextField
+            required
+            id="email"
+            name="email"
+            label="Email"
+            fullWidth
+            autoComplete="email"
+            variant="standard"
+            value={email} // Bind to state
+            onChange={(e) => setEmail(e.target.value)} // Update state on change
+          />
+        </Grid>
 
         <Grid item xs={12}>
           <FormControlLabel
@@ -180,8 +197,12 @@ function OrderPage() {
             label="Use this address for payment details"
           />
           <Grid item xs={12}>
-            <button onClick={submitOrder}>Submit</button>
+            <button onClick={submitOrder} disabled={!isRecaptchaVerified}>Submit  </button>
           </Grid>
+          <ReCAPTCHA
+            sitekey="6Ldw0ywpAAAAAJTnOz2XKYkjlzH30H7TZZLy6QD-"
+            onChange={onRecaptchaChange}
+          />
 
         </Grid>
       </Grid>
