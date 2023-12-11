@@ -23,7 +23,7 @@ function Disclaimer() {
         <Paper elevation={3} style={disclaimerContainerStyle}>
             <div>
                 <Typography variant="h4" style={titleStyle}>
-                    Disclaimer/Privacy Policy
+                    Disclaimer, Privacy, and Return Policy
                 </Typography>
                 <Typography variant="body1">
                     <div>
@@ -450,6 +450,99 @@ function Disclaimer() {
                             <p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.</p>
                             <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
                         </section>
+
+                        <h1>Return and Refund Policy</h1>
+                        <p>Last updated: December 07, 2023</p>
+
+                        <p>
+                            Thank you for shopping at MindWisk.
+                        </p>
+
+                        <p>
+                            If, for any reason, You are not completely satisfied with a purchase, We invite You to review our policy on
+                            refunds and returns. This Return and Refund Policy has been created with the help of the Free Return and
+                            Refund Policy Generator.
+                        </p>
+
+                        <h2>Interpretation and Definitions</h2>
+
+                        <h3>Interpretation</h3>
+                        <p>The words of which the initial letter is capitalized have meanings defined under the following conditions.
+                            The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
+                        </p>
+
+                        <h3>Definitions</h3>
+                        <p>
+                            For the purposes of this Return and Refund Policy:
+                        </p>
+
+                        <ul>
+                            <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement)
+                                refers to MindWisk.
+                            </li>
+                            <li><strong>Goods</strong> refer to the items offered for sale on the Service.</li>
+                            <li><strong>Orders</strong> mean a request by You to purchase Goods from Us.</li>
+                            <li><strong>Service</strong> refers to the Website.</li>
+                            <li><strong>Website</strong> refers to MindWisk, accessible from <a href="https://MindWisk.com">https://MindWisk.com</a></li>
+                            <li><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity
+                                on behalf of which such individual is accessing or using the Service, as applicable.
+                            </li>
+                        </ul>
+                        <h3>Your Order Refund Rights</h3>
+
+                        <p>
+                            You may request a refund for Your Order within 45 days if the items
+                            were damaged.
+                        </p>
+
+                        <p>
+                            The deadline for refunding an Order is 45 days from the date on which
+                            You received the Goods or on which a third party you have appointed,
+                            who is not the carrier, takes possession of the product delivered.
+                        </p>
+
+                        <p>
+                            In order to exercise Your right of refund, You must inform Us of your
+                            decision by means of a clear statement. You can inform us of your
+                            decision by:
+                        </p>
+
+                        <ul>
+                            <li>
+                                <strong>By email:</strong> <a href="mailto:Refunds@MindWisk.com">Refunds@MindWisk.com</a>
+                            </li>
+                        </ul>
+
+                        <p>
+                            We will reimburse You no later than 14 days from the day on which We
+                            confirm Your refund. We will use the same means of payment as You used
+                            for the Order, and You will not incur any fees for such reimbursement.
+                        </p>
+
+                        <h4>Conditions for Refund</h4>
+
+                        <p>
+                            In order for the Goods to be eligible for a refund, please make sure
+                            that:
+                        </p>
+
+                        <ul>
+                            <li>The Goods were delivered in the last 45 days</li>
+                        </ul>
+
+                        <p>
+                            <strong>Individual MindWisks cannot be returned:</strong>
+                        </p>
+
+                        <p>
+                            MindWisks are not suitable for return due to health protection and
+                            hygiene reasons. Please pass them along to a friend, if possible.
+                        </p>
+
+                        <p>
+                            For bulk orders still sealed in their original packaging, please
+                            contact us for special instructions.
+                        </p>
                         <h3>Contact Us</h3>
                         <p>
                             If you have any questions about this Disclaimer, You can contact Us:
