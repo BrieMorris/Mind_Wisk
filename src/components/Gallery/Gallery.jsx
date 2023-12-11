@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
+
 // For grid view of gallery - still need to download material ui 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#d9d9d9' : '#d9d9d9',
@@ -23,13 +24,22 @@ function Gallery(props) {
   const [heading, setHeading] = useState('MindWisk Gallery');
   const history = useHistory();
   const dispatch = useDispatch();
+  const loggedIn = useSelector(store => store.galleryReducer.authReducer);
+  // const user = useSelector((store) => store.user)
+  // const isLoggedIn = Object.keys(user).length > 0;
   const galleryImages = useSelector(store => store.galleryReducer.userGallery);
 
   console.log('gallery images', galleryImages);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_IMAGES'})
-  }, []);
+    console.log('logged in' , loggedIn);
+  }, [dispatch]);
+
+  const handleDelete = (imageId) => {
+    // Dispatch an action to delete the image with the specified imageId
+    dispatch({ type: 'DELETE_IMAGE', payload: { imageId } });
+  };
 
   function resizeImg(img, newWidth, newHeight) {
     // Set the new width and height for the image
@@ -38,35 +48,42 @@ function Gallery(props) {
   }
 
 
-  return (
+ return (
     <div className="container">
-      {/* add funderaising bar here  */}
-      <h2>{heading}</h2>
-      <br/>  <br/>
-      {console.log('gallery images', galleryImages)}
-        <Box sx={{ flexGrow: 1 }}>
+      {/* add fundraising bar here */}
+      <h1 style={{ textAlign: 'center', color: '#1f4a43' }}>{heading}</h1>
+      <br /> <br />
+      <Box sx={{ flexGrow: 1 }}>
         <Grid container direction="row" spacing={2}>
-              
-        {galleryImages.map(photo => {
-            return (
-            <div key={photo.id} >
-              {console.log('photo id', photo.id)}
-              
-              <Grid item xs={10} >
-                <Item>
-              <img src={photo.image} onLoad={(event) => resizeImg(event.target, 200)} alt="MindWisk Photo" />
-              <h3>{photo.description}</h3>
-              <br/>  <br/>
-            
-              </Item>
+          {galleryImages.map((photo) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>
+              <div
+                style={{
+                  border: '1px solid #ddd',
+                  padding: '10px',
+                  textAlign: 'center',
+                  backgroundColor: '#d9d9d9', // Set background color here
+                }}
+              >
+                <img
+                  src={photo.image}
+                  onLoad={(event) => resizeImg(event.target, 200)}
+                  alt="MindWisk Photo"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                />
+                <h3>{photo.description}</h3>
+                {loggedIn.loggedIn && (
+                  <button onClick={() => handleDelete(photo.id)}>Delete</button>
+                )}
+              </div>
             </Grid>
-            </div>
-            )
-        })}
-         </Grid>
-          </Box>
+          ))}
+        </Grid>
+      </Box>
     </div>
   );
 }
+
+ 
 
 export default Gallery;

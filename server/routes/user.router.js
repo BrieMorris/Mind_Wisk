@@ -8,6 +8,7 @@ const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
+
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
@@ -46,5 +47,6 @@ router.post('/logout', (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
+
 
 module.exports = router;

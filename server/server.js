@@ -1,11 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+
+const { authUser } = require('./modules/basicAuth')
+
 const cors = require("cors"); 
+
 const app = express();
 
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
+
+
 
 // Route includes
 const userRouter = require('./routes/user.router');
@@ -16,7 +22,7 @@ const stripePaymentIntentRouter = require('./routes/stripePaymentIntent.router.j
 const ordersRouter = require('./routes/orders.router');
 
 const galleryRouter = require('./routes/gallery.router')
-
+const cloudinaryRouter = require('./routes/cloudinary.router')
 
 
 // Body parser middleware
@@ -30,6 +36,26 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
+// Variable to store the levelIndex on the server
+let levelIndex = 0;
+
+app.get('/api/getLevelIndex', (req, res) => {
+  console.log('GET /api/getLevelIndex', levelIndex);
+
+  res.json({ levelIndex });
+});
+
+app.post('/api/updateLevelIndex', (req, res) => {
+  const { newLevelIndex } = req.body;
+  console.log('POST /api/updateLevelIndex', newLevelIndex);
+  levelIndex = newLevelIndex;
+  res.json({ success: true });
+});
+
+
+
 //CORS 
 // app.use(cors({ origin: true })); 
 // CORS Configuration
@@ -38,6 +64,7 @@ app.use(cors({
   origin: 'http://localhost:3000', // Your front-end origin
   credentials: true // To allow cookies to be sent and received
 })); 
+
 
 
 /* Routes */
@@ -49,6 +76,7 @@ app.use('/api/create-payment-intent', stripePaymentIntentRouter)
 app.use('/orders', ordersRouter);
 
 app.use('/api/gallery', galleryRouter);
+app.use('api/cloudinary' , cloudinaryRouter);
 
 
 

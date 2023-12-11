@@ -1,13 +1,44 @@
+# Project Name: MindWisk 
 
-# Prime Solo Project Starting Repo
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+## Duration: Three week sprint
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+## Description
+MindWisk is a distinctive web platform, resembling an e-commerce store, that offers free head massagers as a health and wellness product. It includes an optional donation feature to support the ongoing initiative of the client in spreading happiness and mental wellness. On the MindWisk platform, you can order a MindWisk when funds are available, as indicated by a progress bar on the landing page. You can also contribute to the cause by donating and supporting it via email submissions of photos that capture your enjoyment of the product, thereby continually promoting happiness and wellbeing.
+
+## Design
+* Freeform- Application Flowcharting and wireframes
+* dbdiagram.io - Used for database relationship diagrams
+* Google Docs - Scope documentation
+
+## Features 
+About Page: Mission statement/Company story 
+Landing Page: Users feed that displays benefits, company mission, donate button, Progress bar
+Progress bar: letting you track fund availability 
+Donate Button: Primary Call to action to Support the cause. 
+Order page with customer info intake and MinWisk order form.  
+Donate page: Donate page to support MindWisk's initiative.
+Integrated with Stripe- Payment Gateway to ensure secure and efficient user donation handling. 
+Gallery page: Displays customer photo submission.  
+NavBar: Routes to Home, About, Gallery, Donate, Pages
+Footer: 
+Contact Info, Admin Button, Disclaimer Page Button, Social Media linked Icons
+Disclaimer Page: 
+Admin Page:
+
+## Technologies Used
+JavaScript 
+React 
+Node.js 
+Stripe 
+Passport 
+PostgreSQL 
+CSS 
+Material UI 
+Cloudinary 
 
 ## Use the Template for This Repository (Don't Clone)
 
 - Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
-
 
 ## Prerequisites
 
@@ -17,9 +48,14 @@ Before you get started, make sure you have the following software installed on y
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
+
+
+## Dependencies installed
+- run an `npm install`. 
+
 ## Create database and table
 
-Create a new database called `prime_app` and create a `user` table:
+Create a new database called `mindwisk` and create a `user` table:
 
 ```SQL
 CREATE TABLE "user" (
@@ -29,20 +65,28 @@ CREATE TABLE "user" (
 );
 ```
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+If you would like to name your database something else, you will need to change `mindwisk` to the name of your new database name in `server/modules/pool.js`
 
-## Development Setup Instructions
+Add the rest of the tables and inputs into the database from the `database.sql` file. 
 
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
+
+## Setup and Installation
+- Follow the steps for the create database and table section to create a databse using the provided database.sql file. Title the DB 'mindwisk' or change
+  database name and update it in pool.js file in modules folder.
+- Run the queries in the included database.sql file. 
+- Create a .env file at the root of the project and paste this line into the file: SERVER_SESSION_SECRET=superDuperSecret
+- Replace superDuperSecret with stronger string for application security. Site that can possibly help with string generation: https://passwordsgenerator.net/. If you don't do this step, create a secret with less than eight characters, or leave it as superDuperSecret, you will get a warning in the server terminal.
+- Set up Cloudinary for Image storage for the Gallery. 
+- Setting up Stripe:
+  - Can Be done later (When ready to start integrating your Stripe Account). Once a Stripe account is created you are going to need to add and paste
+    these lines into the .env file that you had already created where the server session secret is already in. *Recommendation* run Stripe test payments and put Stripe in test mode in order, before doing any real transactions. 
+  - STRIPE_PUBLIC_KEY= 
+  - STRIPE_SECRET_KEY= 
+- Start postgres if not running already by using brew services start postgresql. 
+- Run `npm install` from the project root directory. 
+- Run `npm run server` to run the node server.
+- In a separate terminal tab, run `npm run client` to launch the React app. 
+- Navigate to localhost:3000
 
 ## Debugging
 
@@ -107,14 +151,40 @@ This code is also heavily commented. We recommend reading through the comments, 
   - ProtectedRoute/ProtectedRoute
 
 ## Deployment
-
 1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
+2. Link the Heroku project to the project GitHub Repo
+3. Create an Heroku Postgres database
+4. Connect to the Heroku Postgres database from Postico
+5. Create the necessary tables
+6. Add an environment variable for SERVER_SESSION_SECRET with a nice random string for security
+7. In the deploy section, select manual deploy
+
+
+
+## Contact 
+Adrian Bryant - GitHub: https://github.com/Bles-t @Bles-t 
+LinkedIn: https://www.linkedin.com/in/adrian-bryant-04094ab8/
+
+Brie Morris -  GitHub:https://github.com/BrieMorris @BrieMorris 
+LinkedIn: https://www.linkedin.com/in/brie-morris-b99869285/
+
+Rafael Silva -  GitHub: https://github.com/rsilva04   @rsilva04
+LinkedIn: https://www.linkedin.com/in/rafael-silva1/
+
+Getachew Hundera - GitHub: https://github.com/getachewhundera @getachewhundera
+LinkedIn: https://www.linkedin.com/in/getachewhundera
+
+
+Gabrielle Lepensky  GitHub: https://github.com/glepensky @ glepensky
+LinkedIn: https://www.linkedin.com/in/gabrielle-lepensky/
+
+
+## Acknowledgement
+- MindWisk Client 
+- Prime Digital Academy Instructors/Team
+- Tourmaline cohort mates
+
+## Wireframes
 
 ## Update Documentation
 

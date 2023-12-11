@@ -17,4 +17,5 @@ const useUser = () => {
 }
 */
 
-export default useReduxStore;
+
+export default useAuth;

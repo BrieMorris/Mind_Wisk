@@ -14,6 +14,10 @@ function Nav() {
         </h2>
       </Link>
       <div className="nav-links">
+      <Link className="navLink" to="/home">
+          Home
+
+        </Link>
         <Link className="navLink" to="/about">
           About 
 

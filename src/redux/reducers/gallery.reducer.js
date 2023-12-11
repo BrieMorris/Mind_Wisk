@@ -11,6 +11,27 @@ const userGallery = (state = [], action ) => {
   }
 };
 
+// reducers/authReducer.js
+const initialState = {
+  loggedIn: false,
+  // other authentication-related state
+};
+
+const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOGIN_SUCCESS':
+      return { ...state, loggedIn: true };
+    case 'LOGOUT_SUCCESS':
+      return { ...state, loggedIn: false };
+    // other authentication-related actions
+    default:
+      return state;
+  }
+};
+
+
+
 export default combineReducers({
-  userGallery
+  userGallery,
+  authReducer,
 });
