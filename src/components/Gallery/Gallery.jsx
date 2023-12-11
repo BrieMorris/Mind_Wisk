@@ -48,27 +48,38 @@ function Gallery(props) {
   }
 
 
-  return (
+ return (
     <div className="container">
       {/* add fundraising bar here */}
       <h2>{heading}</h2>
       <br /> <br />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container direction="row" spacing={2}>
-          {galleryImages.map(photo => (
-            <Grid item xs={10} key={photo.id}>
-              <Item>
-                <img src={photo.image} onLoad={(event) => resizeImg(event.target, 200)} alt="MindWisk Photo" />
+          {galleryImages.map((photo) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>
+              <div
+                style={{
+                  border: '1px solid #ddd',
+                  padding: '10px',
+                  textAlign: 'center',
+                  backgroundColor: '#d9d9d9', // Set background color here
+                }}
+              >
+                <img
+                  src={photo.image}
+                  onLoad={(event) => resizeImg(event.target, 200)}
+                  alt="MindWisk Photo"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                />
                 <h3>{photo.description}</h3>
-                {loggedIn.loggedIn && 
+                {loggedIn.loggedIn && (
                   <button onClick={() => handleDelete(photo.id)}>Delete</button>
-                }
-              </Item>
+                )}
+              </div>
             </Grid>
           ))}
         </Grid>
       </Box>
-     
     </div>
   );
 }
