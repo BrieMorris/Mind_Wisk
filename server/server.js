@@ -17,10 +17,6 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 
 
-// const ordersRouter = require('./routes/orders.router');
-
-// const galleryRouter = require('./routes/gallery.router')
-
 const stripePaymentIntentRouter = require('./routes/stripePaymentIntent.router.js'); 
 
 const ordersRouter = require('./routes/orders.router');
@@ -61,16 +57,19 @@ app.post('/api/updateLevelIndex', (req, res) => {
 
 
 //CORS 
-app.use(cors({ origin: true })); 
+// app.use(cors({ origin: true })); 
+// CORS Configuration
+// Adjust the origin to match your front-end's URL
+app.use(cors({
+  origin: 'http://localhost:3000', // Your front-end origin
+  credentials: true // To allow cookies to be sent and received
+})); 
+
 
 
 /* Routes */
 app.use('/api/user', userRouter);
 
-
-// app.use('/orders', ordersRouter);
-
-// app.use('/api/gallery', galleryRouter);
 
 app.use('/api/create-payment-intent', stripePaymentIntentRouter)
 
