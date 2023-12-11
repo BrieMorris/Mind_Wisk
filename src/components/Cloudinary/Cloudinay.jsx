@@ -45,7 +45,7 @@ function Cloudinary(props) {
 
   return (
     <div className="container">
-    <h1>Add MindWisk Photo:</h1>
+    <h1 style={{ textAlign: 'center', color: '#1f4a43' }}>Add MindWisk Photo:</h1>
     <br/>
     <form onSubmit = {addPhoto}>
     <input  type="file" 
@@ -54,7 +54,7 @@ function Cloudinary(props) {
             placeholder="image url"/>
         <br/>
     <br/>  <br/>
-  <h3>Description:</h3>
+  <h3 style={{ textAlign: 'center', color: '#1f4a43' }}>Description:</h3>
     <br/>
     <textarea onChange={(e) => setdescription(e.target.value)} type="text" placeholder="add description"/>
     <br/>  <br/>

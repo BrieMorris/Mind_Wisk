@@ -51,7 +51,7 @@ function Gallery(props) {
  return (
     <div className="container">
       {/* add fundraising bar here */}
-      <h2>{heading}</h2>
+      <h1 style={{ textAlign: 'center', color: '#1f4a43' }}>{heading}</h1>
       <br /> <br />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container direction="row" spacing={2}>

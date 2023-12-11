@@ -12,7 +12,7 @@ function AboutPage() {
       <div>
         <h1 className="h1-line">Mission Statement</h1>
         <br></br>
-        <h3>ok, they're great. But really, why GIVE them away?</h3>
+        <h3>Okay, they're great. But really, why GIVE them away?</h3>
 
         <p>
           Think of those you love with whom you would share small things without

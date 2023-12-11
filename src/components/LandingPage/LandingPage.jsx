@@ -148,7 +148,6 @@ const handleButtonClick = () => {
           <button onClick={handleButtonClick}>Change Level</button>
         )}
           <br></br>
-          <button> Donate </button>
 
           <button onClick={toDonate} className="btn" > Donate </button>
 
