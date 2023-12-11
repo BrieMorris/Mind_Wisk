@@ -8,6 +8,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+// import "./OrderPage.css"
 function OrderPage() {
 
   const [isRecaptchaVerified, setRecaptchaVerified] = useState(false);
@@ -54,7 +55,7 @@ function OrderPage() {
           console.log('Order submitted:', response.data);
 
           alert('Thank you for placing an order');
-          history.push('/donate');
+          history.push('/ThankYouPage');
           // Handle successful submission, e.g., show a success message or redirect
         })
         .catch((error) => {

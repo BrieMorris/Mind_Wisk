@@ -1,4 +1,4 @@
-/* Nav.css */
+/* Nav.css
 
 .nav {
   display: flex;
@@ -41,8 +41,69 @@
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.3s;
+} */
+
+
+/* Nav.css */
+
+.nav {
+  display: flex;
+  flex-direction: column; /* Change to column on small screens */
+  align-items: center;
+  background-color: #356390;
+  padding: 10px 20px;
 }
 
-.navLink:hover {
-  background-color: #d9d9d9;
+.nav-title {
+  display: flex;
+  align-items: center;
+  color: #f8f4f4;
+  font-size: 30px; /* Adjust font size for smaller screens */
+  font-weight: lighter;
+  cursor: pointer;
+  font-family: "montserrat";
+  margin-bottom: 10px; /* Add space between title and links */
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.logo {
+  max-width: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column; /* Display links in a column on small screens */
+  gap: 10px; /* Add space between links */
+}
+
+.navLink {
+  color: #f8f4f4;
+  text-decoration: none;
+  font-size: 18px; /* Adjust font size for smaller screens */
+  font-family: "montserrat";
+  padding: 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-align: center; /* Center text on small screens */
+}
+
+/* Media query for screens smaller than 600 pixels (typical mobile phones) */
+@media only screen and (max-width: 600px) {
+  .nav-title {
+    font-size: 24px; /* Adjust font size for even smaller screens */
+  }
+
+  .nav-links {
+    flex-direction: row; /* Display links in a row for small screens */
+    margin-top: 10px; /* Add space between title and links */
+  }
+
+  .navLink {
+    padding: 8px 10px; /* Adjust padding for smaller screens */
+  }
 }

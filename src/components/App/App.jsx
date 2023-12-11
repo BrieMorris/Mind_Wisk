@@ -24,6 +24,7 @@ import Nav from '../Nav/Nav';
 import Cloudinary from '../Cloudinary/Cloudinay';
 import './App.css';
 import Disclaimer from '../Disclaimer/Disclaimer';
+import ThankYouPage from '../../ThankYouPage/ThankYouPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -137,12 +138,18 @@ function App() {
           </Route>
 
 
+          <Route exact path="/ThankYouPage">
+            <ThankYouPage />
+          </Route>
+
+
+
           <Route exact path="/disclaimer">
             <Disclaimer />
           </Route>
 
           <Route exact path="/cloudinary">
-            <Cloudinary/>  </Route>
+            <Cloudinary />  </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
