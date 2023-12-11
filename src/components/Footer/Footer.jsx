@@ -1,15 +1,14 @@
 import React from 'react';
 import './Footer.css';
 import logo from './MindWisk Brand Board (5).png';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useState, Link } from 'react-router-dom';
 import { Button, Typography, Grid } from '@mui/material';
-
+//Imported Logos
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ClearIcon from '@mui/icons-material/Clear';
 
-import { Link } from 'react-router-dom';
 
 function Footer() {
   const history = useHistory();
@@ -25,6 +24,10 @@ function Footer() {
   function resizeImg(img, newWidth) {
     img.width = newWidth;
   }
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+};
 
   return (
     <footer>
@@ -48,7 +51,7 @@ function Footer() {
             <br />
             <Typography variant="body2">MindWisk@gmail.com</Typography>
             <br />
-            <Typography variant="body2">Social Media Links</Typography>
+            <Typography variant="body2">Follow Us!</Typography>
             <FacebookIcon /> <InstagramIcon /> <ClearIcon /> <YouTubeIcon /> 
             <br />
             <Button variant="outlined" onClick={admin} style={{ color: 'white' }}>
