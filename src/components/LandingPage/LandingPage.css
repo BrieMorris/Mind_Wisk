@@ -46,7 +46,7 @@
 /* * */
 
 .container {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Montserrat;
   color: #708090;
   text-align: center;
 }
@@ -91,6 +91,34 @@
   margin: 30px 80px;
 }
 
+.inactionheader {
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* Center the container */
+  width: 80%; /* Set a specific width for the container */
+}
+
+.inactionheader::before,
+.inactionheader::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #787878;
+  top: 50%;
+}
+
+.inactionheader::before {
+  left: -60px; /* Position the line relative to the left side */
+  width: calc(37% - 40px); /* Adjust the length of the line */
+}
+
+.inactionheader::after {
+  right: -60px; /* Position the line relative to the right side */
+  width: calc(37% - 40px); /* Adjust the length of the line */
+}
+
 .missionheader {
   font-size: 25px;
   position: relative;
@@ -133,5 +161,10 @@
 
 .trioImage {
   width: 70%;
+  height: auto;
+}
+
+.kidImage {
+  width: 20%;
   height: auto;
 }
