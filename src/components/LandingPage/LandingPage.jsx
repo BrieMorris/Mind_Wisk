@@ -107,7 +107,7 @@ const handleButtonClick = () => {
             Grow hair and detoxify Head massage is known to increase oxygen to
             the scalp and hair follicles which stimulates hair growth. It helps
             detoxify the body by stimulating lymphatic drainage and blood flow
-            to the neck thus removing waste products from the body.
+            to the neck thus removing waste products from the body. https://www.webmd.com/skin-problems-and-treatments/hair-loss/remedies-for-hair-loss
           </p>
         </div>
         <div className="grid-col grid-col_4">
@@ -148,7 +148,6 @@ const handleButtonClick = () => {
           <button onClick={handleButtonClick}>Change Level</button>
         )}
           <br></br>
-          <button> Donate </button>
 
           <button onClick={toDonate} className="btn" > Donate </button>
 
