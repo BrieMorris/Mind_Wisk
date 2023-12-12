@@ -54,7 +54,7 @@ function OrderPage() {
         .then((response) => {
           console.log('Order submitted:', response.data);
 
-          alert('Thank you for placing an order');
+          
           history.push('/ThankYouPage');
           // Handle successful submission, e.g., show a success message or redirect
         })
