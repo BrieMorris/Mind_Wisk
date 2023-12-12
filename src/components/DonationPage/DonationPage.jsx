@@ -53,28 +53,28 @@ export default function DonationPage() {
 
     <React.Fragment>
       <CssBaseline />
-      <div className="donationPageLayout">
-        <div id='imgContainerOne'>
-          <img src='./basicSMWoakjpg.jpg' alt='Silver MindWisk' />
+      <div className="Donation-split-layout">
+        <div className="Donation-page-image">
+          <img src='./3.png' alt='Silver MindWisk' />
         </div>
 
         {/* <AppBar
-        position="absolute"
-        color="default"
-        elevation={0}
-        sx={{
-          position: 'relative',
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            MindWisk Donation
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
+          position="absolute"
+          color="default"
+          elevation={0}
+          sx={{
+            position: 'relative',
+            borderBottom: (t) => `1px solid ${t.palette.divider}`,
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" color="inherit" noWrap>
+              MindWisk Donation
+            </Typography>
+          </Toolbar>
+        </AppBar> */}
 
-        <Container id="container" component="main" maxWidth="sm" sx={{ mb: 4 }}>
+        <Container className="Donation-page-content" component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
             <Typography component="h1" variant="h4" align="center">
               MindWisk Donation
