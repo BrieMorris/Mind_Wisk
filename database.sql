@@ -20,7 +20,7 @@ CREATE TABLE "images" (
 
 CREATE TABLE "orders" (
     "id" SERIAL PRIMARY KEY,
-    "firstname" VARCHAR (80) UNIQUE NOT NULL,
+    "firstname" VARCHAR (80)  NOT NULL,
     "lastname" VARCHAR (1000) NOT NULL,
     "address" VARCHAR(1000) NOT NULL,
     "address2" VARCHAR(1000) NOT NULL,

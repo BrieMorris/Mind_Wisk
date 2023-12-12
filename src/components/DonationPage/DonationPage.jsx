@@ -10,7 +10,7 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
+import "./DonationPage.css";
 import AddressForm from './AddressForm';
 import Review from './Review';
 import DonationForm from './DonationForm';
@@ -50,12 +50,14 @@ export default function DonationPage() {
 
 
   return (
+
     <React.Fragment>
       <CssBaseline />
       <div className="donationPageLayout">
         <div id='imgContainerOne'>
           <img src='./basicSMWoakjpg.jpg' alt='Silver MindWisk' />
         </div>
+
         {/* <AppBar
         position="absolute"
         color="default"
@@ -71,9 +73,6 @@ export default function DonationPage() {
           </Typography>
         </Toolbar>
       </AppBar> */}
-
-
-
 
         <Container id="container" component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
@@ -98,8 +97,10 @@ export default function DonationPage() {
               </React.Fragment>
             ) : (
 
+
               <React.Fragment>
                 {getStepContent(activeStep)}
+
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
@@ -138,5 +139,6 @@ export default function DonationPage() {
         </Container>
       </div>
     </React.Fragment>
+
   );
 }
