@@ -2,7 +2,6 @@ import React from "react";
 import "./AboutPage.css";
 import artImage from "./art.png";
 
-
 function AboutPage() {
   return (
     <div className="aboutcontainer">
@@ -38,8 +37,6 @@ function AboutPage() {
           should be present in every relationship and interaction. I wanted to
           give this experience to more people, and not just people who'd attend
           a special event. Everyday people.
-          <br></br>
-          <br></br>
           <br></br>
           <img src={artImage} alt="Art" className="aboutImage" />
           <p className="imageCaption">
