@@ -1,10 +1,7 @@
 import React from "react";
 import "./AboutPage.css";
+import artImage from "./art.png";
 
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
 
 function AboutPage() {
   return (
@@ -12,8 +9,7 @@ function AboutPage() {
       <div>
         <h1 className="h1-line">Mission Statement</h1>
         <br></br>
-        <h3>ok, they're great. But really, why GIVE them away?</h3>
-
+        <h3>Okay, they're great. But really, why GIVE them away?</h3>
         <p>
           Think of those you love with whom you would share small things without
           ever expecting anything in return. Your family. Maybe a few close
@@ -43,6 +39,12 @@ function AboutPage() {
           give this experience to more people, and not just people who'd attend
           a special event. Everyday people.
           <br></br>
+          <br></br>
+          <br></br>
+          <img src={artImage} alt="Art" className="aboutImage" />
+          <p className="imageCaption">
+            Original dandelion seed artwork inspired by MindWisk
+          </p>
           <br></br>
           When I got home, I bought some more. I gave some to friends and
           partners. I took a few to a party. I gave them out to coworkers and to

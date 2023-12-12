@@ -1,7 +1,7 @@
 .aboutcontainer {
-  font-family: "Montserrat";
+  font-family: Montserrat;
   font-size: 22px;
-  color: #787878;
+  color: #708090;
   text-align: center;
   position: relative;
   margin: 0px;
@@ -57,4 +57,16 @@ h3 {
   margin: 0 auto; /* Center on small screens */
   text-align: center;
   padding: 0.5rem;
+}
+
+.aboutImage {
+  width: 50%;
+  height: auto;
+}
+
+.imageCaption {
+  font-size: 14px; /* Smaller font size for the caption */
+  color: #707070; /* Caption text color, adjust as needed */
+  text-align: center; /* Center the caption */
+  margin-top: 8px; /* Space between the image and the caption */
 }

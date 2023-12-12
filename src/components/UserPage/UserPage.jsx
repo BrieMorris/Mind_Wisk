@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
-
+import Cloudinary from '../Cloudinary/Cloudinay';
+//This is the Admin Page for Apollo to make adjust for users
 function UserPage() {
   const user = useSelector((store) => store.user);
   const history = useHistory();
@@ -105,6 +106,8 @@ function UserPage() {
         )}
 
         <button onClick={handleClick}>Landing Page</button>
+        <br/><br/>
+        <Cloudinary/>
       </div>
     </div>
   );

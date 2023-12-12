@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import { useState } from "react";
 import * as React from 'react';
@@ -22,15 +23,23 @@ function OrderPage() {
   const history = useHistory()
 
   // Define state hooks for each form field
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [address, setAddress1] = useState('');
-  const [address2, setAddress2] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zipcode, setZip] = useState('');
-  const [country, setCountry] = useState('');
-  const [email, setEmail] = useState('');
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [address, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zipcode, setZip] = useState("");
+  const [country, setCountry] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    // Dynamically load the reCAPTCHA v3 script
+    const script = document.createElement("script");
+    script.src =
+      "https://www.google.com/recaptcha/api.js?render=6LdKDykpAAAAAKGAEaXNmRFYk67YuiQ-GWy8g45b";
+    script.async = true;
+    document.head.appendChild(script);
 
 
   // Function to handle form submission
@@ -67,7 +76,6 @@ function OrderPage() {
       console.error("ReCAPTCHA verification failed. Please complete the ReCAPTCHA.");
     }
   }
-
 
 
   return (
@@ -194,16 +202,20 @@ function OrderPage() {
 
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+            control={
+              <Checkbox color="secondary" name="saveAddress" value="yes" />
+            }
             label="Use this address for payment details"
           />
           <Grid item xs={12}>
+
             <button onClick={submitOrder} disabled={!isRecaptchaVerified}>Submit  </button>
           </Grid>
           <ReCAPTCHA
             sitekey="6Ldw0ywpAAAAAJTnOz2XKYkjlzH30H7TZZLy6QD-"
             onChange={onRecaptchaChange}
           />
+
 
         </Grid>
       </Grid>
