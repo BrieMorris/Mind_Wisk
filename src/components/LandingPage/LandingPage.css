@@ -126,6 +126,7 @@
   display: inline-block;
   margin: 0 auto; /* Center the container */
   width: 80%; /* Set a specific width for the container */
+}
 /* Progress Bar, "Spreading thhe joy!", and Donate button */
 .donatecontainer {
   width: 50%; /* or any specific width */
