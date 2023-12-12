@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { useSelector } from "react-redux";
+
 
 
 
@@ -9,8 +11,14 @@ import { Elements } from "@stripe/react-stripe-js";
 // This is your test publishable API key.
 const stripePromise = loadStripe("pk_test_");
 
-function PaymentIntent() {
-  const [clientSecret, setClientSecret] = useState("");
+import CheckoutForm from './CheckoutForm'
+
+function PaymentIntent(props) {
+  const [ clientSecret, setClientSecret ] = useState('');
+
+
+  //Gets the donation amount from the Redux store 
+  const donationAmount = useSelector((store) => store.donationReducer.donationAmount);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -27,29 +35,36 @@ function PaymentIntent() {
         console.error("Error creating payment intent:", error);
       }
     };
-  
-    // Calls the function with the actual amount 
-    createPaymentIntent(yourAmountVariable); // 'yourAmountVariable' gets replaces with amount value 
-  
-  }, []);
+    // Check if donation amount is available and then call the function with the actual amount
+    if (props.amount) {
+      createPaymentIntent(props.amount * 100); // Use the passed amount prop
+    }
+    // if (donationAmount) {
+    //   createPaymentIntent(donationAmount * 100); // Multiplying by 100 to convert to cents as Stripe expects amounts in cents
+    // }
+  }, [donationAmount]); // Add donationAmount as a dependency
 
-const appearance = {
-theme: 'stripe',
-};
-const options = {
-// passing the client secret obtained from the server
-clientSecret: '{{CLIENT_SECRET}}',
-appearance,
-};
+  const appearance = {
+    theme: 'stripe',
+  };
+
+  console.log('Client Secret', clientSecret); 
+
+  const options = {
+    // passing the client secret obtained from the server
+    clientSecret: clientSecret,
+    appearance,
+  };
 
   return (
-    <div className="App">
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
+    <>
+      <h1>Payment</h1>
+      {clientSecret && stripePromise && (
+        <Elements stripe={stripePromise} options={{ clientSecret, }}>
           <CheckoutForm />
         </Elements>
       )}
-    </div>
+    </>
   );
 }
 

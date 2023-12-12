@@ -1,50 +1,82 @@
 import React from 'react';
 import './Footer.css';
-import img4 from './4.png'
-import { useHistory } from 'react-router-dom';
+import logo from './MindWisk Brand Board (5).png';
+import { useHistory, useState, Link } from 'react-router-dom';
+import { Button, Typography, Grid } from '@mui/material';
+//Imported Logos
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import ClearIcon from '@mui/icons-material/Clear';
 
-
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-
   const history = useHistory();
 
-  const disclaimer = (event) => {
-    history.push('/disclaimer')
-  }
+  const disclaimer = () => {
+    history.push('/disclaimer');
+  };
 
-  function resizeImg(img, newWidth, newHeight) {
-    // Set the new width and height for the image
+  const admin = () => {
+    history.push('/login');
+  };
+
+  function resizeImg(img, newWidth) {
     img.width = newWidth;
-    // img.height = newHeight;
   }
 
-  return <footer>
-    
-  
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-    <div className="left">
-    <img src ={img4} onLoad={(event) => resizeImg(event.target, 150)} />
-    <br/>
-    &copy; MindWisk 
-    <br/>  <br/>  <br/> 
-     <button onClick = {disclaimer}> Disclaimer </button>
-     </div>
+  return (
+    <footer>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={8} lg={9}>
+          <img src={logo} alt="MindWisk Logo" onLoad={(event) => resizeImg(event.target, 150)} />
+          <br /><br />
+          <Typography variant="body2" style={{ textAlign: 'left', fontSize: '1.5rem' }}>
+            &copy; MindWisk
+          </Typography>
+          <br />
+          <Button variant="outlined" onClick={disclaimer} style={{ color: 'white' }}>
+            Disclaimer
+          </Button>
+        </Grid>
 
-     <div className="right">
-     <h4> contact: MindWisk@gmail.com </h4>
-     <p>Social Media Links</p>
-     </div>
 
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <div className="right-content">
+            <Typography variant="h6">Contact:</Typography>
+            <br />
+            <Typography variant="body2">MindWisk@gmail.com</Typography>
+            <br />
+            <Typography variant="body2">Follow Us!</Typography>
 
-  <div className="footer">
-  
-      </div>
-</footer>;
+            <a href="https://www.facebook.com/MindWisk" target="_blank" rel="noopener noreferrer">
+              <FacebookIcon />
+            </a>
+
+            <a href="https://www.instagram.com/mindwiskproject" target="_blank" rel="noopener noreferrer">
+              <InstagramIcon />
+            </a>
+
+            <a href="https://twitter.com/MindWiskProject" target="_blank" rel="noopener noreferrer">
+              <ClearIcon />
+            </a>
+
+            <a href="https://www.youtube.com/@MindWisk" target="_blank" rel="noopener noreferrer">
+              <YouTubeIcon />
+            </a>
+            <br />
+            <Button variant="outlined" onClick={admin} style={{ color: 'white' }}>
+              Admin
+            </Button>
+          </div>
+        </Grid>
+      </Grid>
+    </footer>
+  );
 }
 
 export default Footer;

@@ -7,6 +7,20 @@ function AboutPage() {
   return (
     <div className="aboutcontainer">
       <div>
+        <h1 className="h1-line">Mission Statement</h1>
+        <br></br>
+        <h3>Okay, they're great. But really, why GIVE them away?</h3>
+        <p>
+          Think of those you love with whom you would share small things without
+          ever expecting anything in return. Your family. Maybe a few close
+          friends. What if we had we had that same giving attitude with a few
+          more people. Or with our whole area. Or with everyone. We all know it
+          feels good to help other people feel good. Being helped makes other
+          people people want to help other people. We create more joy, which in
+          turn creates more joy. It's surprisingly nice to unexpectedly receive
+          something of value for free and it encourages us all to be more
+          generous with everyone in our own lives. And it's so very simple.
+        </p>
         <br></br>
         <div className="h1-line"></div>
         <h1 className="h1-line">Our Story</h1>

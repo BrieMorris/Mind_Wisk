@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import trioImage from "./trio.png";
 import kidImage from "./kid.png";
+import LoginPage from "../LoginPage/LoginPage";
+import { useSelector } from "react-redux";
 
 // CUSTOM COMPONENTS
 
@@ -18,6 +20,50 @@ function LandingPage() {
   const toDonate = (event) => {
     history.push("/donate");
   };
+
+
+
+  const user = useSelector(state => state.user);
+  const isLoggedIn = Object.keys(user).length > 0;
+
+  const levels = ["Insufficient", "Low", "Plenty"];
+
+const [levelIndex, setLevelIndex] = useState(0);
+
+
+useEffect(() => {
+  // Fetch the initial level index from the server
+  fetch('/api/getLevelIndex')
+    .then((response) => response.json())
+    .then((data) => setLevelIndex(data.levelIndex));
+}, []);
+
+
+
+const handleButtonClick = () => {
+  console.log('Button Clicked');
+
+  // Update the level index on the server
+  fetch('/api/updateLevelIndex', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ newLevelIndex: (levelIndex + 1) % levels.length }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Server Response', data);
+      if (data.success) {
+        // Update the level index on the client
+        setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+      }
+    });
+};
+
+
+
+
 
   return (
     <div className="container">
@@ -116,8 +162,8 @@ function LandingPage() {
       <div className="donatecontainer">
         {/* Progress Bar */}
         {/* Update ProgressBar level here */}
-
-        <ProgressBar level="Low" />
+        <div className="donatecontainer">
+        <ProgressBar level={levels[levelIndex]} /> </div>
         {/* ^ Will relocate switch once we have Admin Page ^ */}
 
         <br></br>
@@ -125,7 +171,7 @@ function LandingPage() {
           {" "}
           Donate{" "}
         </button>
-      </div>
+    </div>
     </div>
   );
 }
