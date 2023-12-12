@@ -1,70 +1,19 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import trioImage from "./trio.png";
 import kidImage from "./kid.png";
-import LoginPage from "../LoginPage/LoginPage";
-import { useSelector } from "react-redux";
-
 // CUSTOM COMPONENTS
-
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
   const history = useHistory();
-
   const toOrder = (event) => {
     history.push("/order");
   };
-
   const toDonate = (event) => {
     history.push("/donate");
   };
-
-
-
-  const user = useSelector(state => state.user);
-  const isLoggedIn = Object.keys(user).length > 0;
-
-  const levels = ["Insufficient", "Low", "Plenty"];
-
-const [levelIndex, setLevelIndex] = useState(0);
-
-
-useEffect(() => {
-  // Fetch the initial level index from the server
-  fetch('/api/getLevelIndex')
-    .then((response) => response.json())
-    .then((data) => setLevelIndex(data.levelIndex));
-}, []);
-
-
-
-const handleButtonClick = () => {
-  console.log('Button Clicked');
-
-  // Update the level index on the server
-  fetch('/api/updateLevelIndex', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ newLevelIndex: (levelIndex + 1) % levels.length }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('Server Response', data);
-      if (data.success) {
-        // Update the level index on the client
-        setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
-      }
-    });
-};
-
-
-
-
-
   return (
     <div className="container">
       {/* <h1>{heading}</h1> */}
@@ -83,16 +32,13 @@ const handleButtonClick = () => {
         {" "}
         GET ONE FREE!{" "}
       </button>
-
       <br></br>
       <br></br>
       <br></br>
-
       <div className="benefitcontainer">
         <h2>Benefits</h2>
       </div>
       <img src={trioImage} alt="Art" className="trioImage" />
-
       <div className="feelgoodheader">
         <h3>Feel Good Without Chemicals</h3>
       </div>
@@ -105,11 +51,11 @@ const handleButtonClick = () => {
             href="https://nccih.nih.gov/health/massage"
             target="_blank"
             rel="noopener noreferrer">
-            Learn more about massage benefits here.
+            Learn more about massage benefits here
           </a>
         </p>
       </div>
-
+      <br></br>
       <div className="ancientwisdomheader">
         <h3>Ancient Wisdom</h3>
       </div>
@@ -130,18 +76,23 @@ const handleButtonClick = () => {
           scalp and hair follicles which stimulates hair growth. It helps
           detoxify the body by stimulating lymphatic drainage and blood flow to
           the neck thus removing waste products from the body.
+          <br></br>
+          <a
+            href="https://www.webmd.com/skin-problems-and-treatments/hair-loss/remedies-for-hair-loss"
+            target="_blank"
+            rel="noopener noreferrer">
+            Learn more about hair and detoxifying benefits here
+          </a>
         </p>
       </div>
       <div className="inactionheader">
         <h1>MindWisk in action!</h1>
       </div>
-
       <div className="missionheader">
         <h1>Our Mission</h1>
       </div>
       <div className="missioncontainer">
         <h2>Ok, they're great. But really, why GIVE them away?</h2>
-
         <p>
           Think of those you love with whom you would share small things without
           ever expecting anything in return. Your family. Maybe a few close
@@ -159,21 +110,29 @@ const handleButtonClick = () => {
       <div className="spreadthejoy">
         <h3>Spread the joy!</h3>
       </div>
+      <div className="pleasedonatecontainer">
+        <p>
+          MindWisk runs on the kindness of wonderful people like you. When our
+          donation bar is red and reads 'Insufficient,' it means we need your
+          help to keep the joy flowing. Your donation enables us to provide free
+          MindWisks, directly impacting lives of others. Every bit of your
+          contribution goes towards these wonderful gifts. Please consider
+          donating today to help us spread joy and positivity!
+        </p>
+      </div>
       <div className="donatecontainer">
         {/* Progress Bar */}
         {/* Update ProgressBar level here */}
-        <div className="donatecontainer">
-        <ProgressBar level={levels[levelIndex]} /> </div>
+        <ProgressBar level="Low" />
         {/* ^ Will relocate switch once we have Admin Page ^ */}
-
+        <br></br>
         <br></br>
         <button onClick={toDonate} className="btn">
           {" "}
           Donate{" "}
         </button>
-    </div>
+      </div>
     </div>
   );
 }
-
 export default LandingPage;

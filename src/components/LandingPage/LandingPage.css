@@ -1,23 +1,18 @@
-
 /** Simultaneously stimulating & relaxing. */
-
 .containerheading {
-  font-size: 30px;
-
+  font-size: 40px;
 }
-
 /** Head massagers like the MindWisk... */
 .headingintro {
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   margin: 50px;
   margin: 50px 80px;
+  line-height: 1.6;
 }
-
 /** Benefits */
-
 .benefitcontainer {
-  font-size: 25px;
+  font-size: 30px;
   position: relative;
   text-align: center;
   display: inline-block;
@@ -25,7 +20,6 @@
   width: 80%; /* Set a specific width for the container */
   margin-bottom: 5px;
 }
-
 .benefitcontainer::before,
 .benefitcontainer::after {
   content: "";
@@ -34,75 +28,64 @@
   background-color: #787878;
   top: 50%;
 }
-
 .benefitcontainer::before {
   left: -60px; /* Position the line relative to the left side */
   width: calc(50% - 40px); /* Adjust the length of the line */
 }
-
 .benefitcontainer::after {
   right: -60px; /* Position the line relative to the right side */
   width: calc(50% - 40px); /* Adjust the length of the line */
 }
-
 /* * */
-
 .container {
   font-family: Montserrat;
   color: #708090;
   text-align: center;
 }
-
 /* Progress Bar, "Spreading thhe joy!", and Donate button */
 .donatecontainer {
   width: 50%;
   margin: 0 auto;
   text-align: center;
 }
-
 .feelgoodheader {
   font-size: 25px;
 }
-
 .feelgoodcontainer {
-  font-size: 18px;
+  font-size: 25px;
   text-align: center;
   margin: 50px;
   margin: 30px 80px;
+  line-height: 1.6;
 }
-
 .ancientwisdomheader {
   font-size: 25px;
 }
-
 .ancientwisdomcontainer {
-  font-size: 18px;
+  font-size: 25px;
   text-align: center;
   margin: 50px;
   margin: 30px 80px;
+  line-height: 1.6;
 }
-
 .growhairheader {
   font-size: 25px;
 }
-
 .growhaircontainer {
-  font-size: 18px;
+  font-size: 25px;
   text-align: center;
   margin: 50px;
   margin: 30px 80px;
+  line-height: 1.6;
 }
-
 .inactionheader {
-  font-size: 25px;
+  font-size: 28px;
   position: relative;
   text-align: center;
   display: inline-block;
   margin: 0 auto; /* Center the container */
   width: 80%; /* Set a specific width for the container */
 }
-
-
 .inactionheader::before,
 .inactionheader::after {
   content: "";
@@ -111,17 +94,14 @@
   background-color: #787878;
   top: 50%;
 }
-
 .inactionheader::before {
   left: -60px; /* Position the line relative to the left side */
-  width: calc(37% - 40px); /* Adjust the length of the line */
+  width: calc(37% - 90px); /* Adjust the length of the line */
 }
-
 .inactionheader::after {
   right: -60px; /* Position the line relative to the right side */
-  width: calc(37% - 40px); /* Adjust the length of the line */
+  width: calc(37% - 90px); /* Adjust the length of the line */
 }
-
 .missionheader {
   font-size: 25px;
   position: relative;
@@ -130,15 +110,6 @@
   margin: 0 auto; /* Center the container */
   width: 80%; /* Set a specific width for the container */
 }
-
-/* Progress Bar, "Spreading thhe joy!", and Donate button */
-.donatecontainer {
-  width: 50%; /* or any specific width */
-  margin: 0 auto; /* auto margin on left and right */
-  text-align: center; /* centering the inline/inline-block content */
-}
-
-
 .missionheader::before,
 .missionheader::after {
   content: "";
@@ -147,36 +118,52 @@
   background-color: #787878;
   top: 50%;
 }
-
 .missionheader::before {
   left: -60px; /* Position the line relative to the left side */
   width: calc(42% - 40px); /* Adjust the length of the line */
 }
-
 .missionheader::after {
   right: -60px; /* Position the line relative to the right side */
   width: calc(42% - 40px); /* Adjust the length of the line */
 }
-
 .missioncontainer {
-  font-size: 18px;
+  font-size: 22px;
   text-align: center;
   margin: 50px;
   margin: 30px 80px;
+  line-height: 1.6;
 }
-
 .spreadthejoy {
   font-size: 35px;
   text-align: center;
 }
-
 .trioImage {
   width: 70%;
   height: auto;
 }
-
 .kidImage {
   width: 20%;
   height: auto;
-
 }
+.pleasedonatecontainer {
+  font-size: 20px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
