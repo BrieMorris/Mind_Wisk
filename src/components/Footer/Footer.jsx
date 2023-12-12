@@ -41,8 +41,10 @@ function Footer() {
         </Button>
       </Grid>
 
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         {/* Center grid content */}
+        <div className="center-content">
+      </div>
         <br /><br />
         <Typography variant="h6">CONTACT US:</Typography>
           <br />
@@ -50,7 +52,7 @@ function Footer() {
           <br />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: 'flex', flexDirection: 'column', alignItems: 'right', justifyContent: 'right' }}> 
         {/* Rightmost grid content */}
         <div className="right-content">
           <br /><br />
