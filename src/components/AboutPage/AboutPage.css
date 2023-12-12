@@ -54,7 +54,7 @@ h3 {
 
 .aboutcontainer {
   width: 100%; /* Adjust width for full width on small screens */
-  margin: 0 auto; /* Center on small screens */
+  margin: auto; /* Center on small screens */
   text-align: center;
   padding: 0.5rem;
 }
