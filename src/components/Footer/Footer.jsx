@@ -36,7 +36,7 @@ function Footer() {
           &copy; MindWisk
         </Typography>
         <br />
-        <Button variant="outlined" onClick={disclaimer} style={{ color: 'white', backgroundColor: 'green' }}>
+        <Button variant="outlined" onClick={disclaimer} style={{ color: 'white', backgroundColor: '#50C878' }}>
           Disclaimer
         </Button>
       </Grid>
@@ -73,7 +73,7 @@ function Footer() {
             <YouTubeIcon />
           </a>
           <br /><br /><br /><br />
-          <Button variant="outlined" onClick={admin} style={{ color: 'white', backgroundColor: 'green' }}>
+          <Button variant="outlined" onClick={admin} style={{ color: 'white', backgroundColor: '#50C878' }}>
             Admin
           </Button>
         </div>
