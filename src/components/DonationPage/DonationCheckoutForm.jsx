@@ -4,6 +4,7 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import "./DonationPage.css";
 
 function DonationCheckoutForm() {
   const stripe = useStripe();
@@ -63,7 +64,7 @@ function DonationCheckoutForm() {
       },
     });
 
-    // will only reach this point if an immediate error when confirming payment, otherwise it redirects user to the route in our return_url. 
+    // will only reach this point if an immediate error when confirming payment, otherwise it redirects user to the route in our return_url.
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
@@ -92,4 +93,4 @@ function DonationCheckoutForm() {
   );
 }
 
-export default DonationCheckoutForm; 
+export default DonationCheckoutForm;
