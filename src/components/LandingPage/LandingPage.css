@@ -1,86 +1,132 @@
-/* --------------------------------------------------------------------------------
-Grid
--------------------------------------------------------------------------------- */
+/** Simultaneously stimulating & relaxing. */
 
-.grid {
-  display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* defaults to 'flex-start' */
-  justify-content: flex-start;
-  align-items: flex-start;
+.containerheading {
+  font-size: 30px;
 }
 
-.grid-col {
-  flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
-  box-sizing: border-box;
+/** Head massagers like the MindWisk... */
+.headingintro {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 50px 80px;
 }
 
-.grid-col_1 {
-  flex-basis: 8.33333333%;
-  max-width: 8.33333333%;
+/** Benefits */
+
+.benefitcontainer {
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* Center the container */
+  width: 80%; /* Set a specific width for the container */
+  margin-bottom: 5px;
 }
 
-.grid-col_2 {
-  flex-basis: 16.66666667%;
-  max-width: 16.66666667%;
+.benefitcontainer::before,
+.benefitcontainer::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #787878;
+  top: 50%;
 }
 
-.grid-col_3 {
-  flex-basis: 25%;
-  max-width: 25%;
+.benefitcontainer::before {
+  left: -60px; /* Position the line relative to the left side */
+  width: calc(50% - 40px); /* Adjust the length of the line */
 }
 
-.grid-col_4 {
-  flex-basis: 33.33333333%;
-  max-width: 33.33333333%;
+.benefitcontainer::after {
+  right: -60px; /* Position the line relative to the right side */
+  width: calc(50% - 40px); /* Adjust the length of the line */
 }
 
-.grid-col_5 {
-  flex-basis: 41.66666667%;
-  max-width: 41.66666667%;
+/* * */
+
+.container {
+  font-family: Montserrat;
+  color: #708090;
+  text-align: center;
 }
 
-.grid-col_6 {
-  flex-basis: 50%;
-  max-width: 50%;
+/* Progress Bar, "Spreading thhe joy!", and Donate button */
+.donatecontainer {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.grid-col_7 {
-  flex-basis: 58.33333333%;
-  max-width: 58.33333333%;
+.feelgoodheader {
+  font-size: 25px;
 }
 
-.grid-col_8 {
-  flex-basis: 66.66666667%;
-  max-width: 66.66666667%;
+.feelgoodcontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
 }
 
-.grid-col_9 {
-  flex-basis: 75%;
-  max-width: 75%;
+.ancientwisdomheader {
+  font-size: 25px;
 }
 
-.grid-col_10 {
-  flex-basis: 83.33333333%;
-  max-width: 83.33333333%;
+.ancientwisdomcontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
 }
 
-.grid-col_11 {
-  flex-basis: 91.66666667%;
-  max-width: 91.66666667%;
+.growhairheader {
+  font-size: 25px;
 }
 
-.grid-col_12 {
-  flex-basis: 100%;
-  max-width: 100%;
-
+.growhaircontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
 }
 
+.inactionheader {
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* Center the container */
+  width: 80%; /* Set a specific width for the container */
+}
 
+.inactionheader::before,
+.inactionheader::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #787878;
+  top: 50%;
+}
+
+.inactionheader::before {
+  left: -60px; /* Position the line relative to the left side */
+  width: calc(37% - 40px); /* Adjust the length of the line */
+}
+
+.inactionheader::after {
+  right: -60px; /* Position the line relative to the right side */
+  width: calc(37% - 40px); /* Adjust the length of the line */
+}
+
+.missionheader {
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* Center the container */
+  width: 80%; /* Set a specific width for the container */
+}
 /* Progress Bar, "Spreading thhe joy!", and Donate button */
 .donatecontainer {
   width: 50%; /* or any specific width */
@@ -88,4 +134,43 @@ Grid
   text-align: center; /* centering the inline/inline-block content */
 }
 
+.missionheader::before,
+.missionheader::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #787878;
+  top: 50%;
+}
 
+.missionheader::before {
+  left: -60px; /* Position the line relative to the left side */
+  width: calc(42% - 40px); /* Adjust the length of the line */
+}
+
+.missionheader::after {
+  right: -60px; /* Position the line relative to the right side */
+  width: calc(42% - 40px); /* Adjust the length of the line */
+}
+
+.missioncontainer {
+  font-size: 18px;
+  text-align: center;
+  margin: 50px;
+  margin: 30px 80px;
+}
+
+.spreadthejoy {
+  font-size: 35px;
+  text-align: center;
+}
+
+.trioImage {
+  width: 70%;
+  height: auto;
+}
+
+.kidImage {
+  width: 20%;
+  height: auto;
+}
