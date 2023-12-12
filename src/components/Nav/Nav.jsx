@@ -4,8 +4,12 @@ import navbackground from "./navbackground.png";
 import logo from "./MindWisk Brand Board (5).png";
 import "./Nav.css";
 import wisk from "./wisk.png";
+import { useSelector } from 'react-redux';
 
 function Nav() {
+
+  const level = useSelector((state) => state.navBarReducer.level);
+
   return (
     <div className="nav">
       <div className="nav-container">
@@ -26,9 +30,11 @@ function Nav() {
           <Link className="navLink" to="/donate">
             Donate
           </Link>
-          <Link className="navLink" to="/order">
-            Order
-          </Link>
+          {level !== "Insufficient" && (
+            <Link className="navLink" to="/order">
+              Order
+            </Link>
+          )}
         </div>
       </div>
     </div>
