@@ -9,6 +9,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import watercolor from "./watercolor.png"
 // import "./OrderPage.css"
 function OrderPage() {
 
@@ -73,10 +74,17 @@ function OrderPage() {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
+
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={watercolor} alt="Watercolor Image" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+      </div>
+
+      <Typography variant="h6" gutterBottom  style={{ textAlign: 'center', padding: '10px', margin: '10px' }}>
         Shipping address
       </Typography>
-      <Grid container spacing={3}>
+
+      <Grid container spacing={3} style={{ padding: '50px', margin: '30px' }}>
+        
         <Grid item xs={12} sm={6}>
           <TextField
             required
@@ -204,6 +212,7 @@ function OrderPage() {
 
             <button onClick={submitOrder} disabled={!isRecaptchaVerified}>Submit  </button>
           </Grid>
+          <br/>
           <ReCAPTCHA
             sitekey="6Ldw0ywpAAAAAJTnOz2XKYkjlzH30H7TZZLy6QD-"
             onChange={onRecaptchaChange}
