@@ -8,7 +8,6 @@ import wisk from "./wisk.png";
 function Nav() {
   return (
     <div className="nav">
-
       <div className="nav-container">
         <Link to="/home">
           <h2 className="nav-title">
@@ -16,21 +15,17 @@ function Nav() {
             <img className="wisk" src={wisk} />
             {/* <img className="logo" src={logo} alt="Logo" /> */}
           </h2>
-
         </Link>
         <div className="nav-links">
           <Link className="navLink" to="/about">
             About
           </Link>
-
           <Link className="navLink" to="/gallery">
             Gallery
           </Link>
-
           <Link className="navLink" to="/donate">
             Donate
           </Link>
-
           <Link className="navLink" to="/order">
             Order
           </Link>
@@ -39,5 +34,4 @@ function Nav() {
     </div>
   );
 }
-
 export default Nav;
