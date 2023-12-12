@@ -4,6 +4,8 @@ import "./LandingPage.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import trioImage from "./trio.png";
 import kidImage from "./kid.png";
+import videoFile from "./video.mp4";
+
 // CUSTOM COMPONENTS
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
@@ -88,6 +90,14 @@ function LandingPage() {
       <div className="inactionheader">
         <h1>MindWisk in action!</h1>
       </div>
+
+      <div className="videocontainer">
+        <video width="100%" height="auto" controls>
+          <source src={videoFile} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       <div className="missionheader">
         <h1>Our Mission</h1>
       </div>

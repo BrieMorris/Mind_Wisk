@@ -153,17 +153,7 @@
   line-height: 1.6;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.videocontainer {
+  margin-top: 55px; /* Space above the video */
+  margin-bottom: 55px; /* Space below the video */
+}
