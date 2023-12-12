@@ -1,6 +1,8 @@
 import { Card, CardContent, Typography, Grid, InputAdornment, OutlinedInput, Button } from "@mui/material";
 import { useState } from "react";
+
 import { useDispatch } from "react-redux";
+
 
 export default function DonationForm() {
     const [amount, setAmount] = useState('');
@@ -30,6 +32,7 @@ export default function DonationForm() {
     };
 
     return (
+
         <Card>
             <CardContent>
                 <Grid container spacing={2} justifyContent={"center"}>
@@ -66,9 +69,11 @@ export default function DonationForm() {
                                     Donate
                                 </Button>
                             </Grid> */}
+
                         </Grid>
                     </Grid>
-                </Grid>
-            </CardContent>
-        </Card>)
-}; 
+                </CardContent>
+            </Card>
+        </div>
+    )
+};
