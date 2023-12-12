@@ -92,8 +92,16 @@ export default function DonationPage() {
                   Thank you for your Donation.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your Donation Confirmation number is #2001539. We have emailed your receipt confirmation.
+                  Your Donation Confirmation number is #2001539. 
                 </Typography>
+                <Button
+                  variant="contained"
+                  onClick={() => setActiveStep(0)} // Reset the step to the beginning
+                  sx={{ mt: 3 }}
+                >
+                  Done
+                </Button>
+
               </React.Fragment>
             ) : (
 
@@ -112,7 +120,7 @@ export default function DonationPage() {
                     onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Donate' : 'Next'}
                   </Button>
                 </Box>
               </React.Fragment>
