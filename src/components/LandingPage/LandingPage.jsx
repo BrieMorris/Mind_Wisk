@@ -5,7 +5,7 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import trioImage from "./trio.png";
 import kidImage from "./kid.png";
 import videoFile from "./video.mp4";
-
+import { useSelector } from "react-redux";
 // CUSTOM COMPONENTS
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
