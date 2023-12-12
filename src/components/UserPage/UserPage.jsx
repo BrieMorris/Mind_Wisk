@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
@@ -9,6 +9,9 @@ import Cloudinary from '../Cloudinary/Cloudinay';
 function UserPage() {
   const user = useSelector((store) => store.user);
   const history = useHistory();
+  const level = useSelector((state) => state.navBarReducer.level);
+  const dispatch = useDispatch();
+
 
   const handleClick = () => {
     history.push('/LandingPage');
@@ -18,14 +21,16 @@ function UserPage() {
 
   const levels = ["Insufficient", "Low", "Plenty"];
 
-  const [levelIndex, setLevelIndex] = useState(0);
+  // const [levelIndex, setLevelIndex] = useState(0);
 
   useEffect(() => {
     // Fetch the initial level index from the server
     fetch('/api/getLevelIndex')
-      .then((response) => response.json())
-      .then((data) => setLevelIndex(data.levelIndex));
-  }, []);
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch({ type: 'SET_LEVEL', payload: levels[data.levelIndex] });
+    });
+}, [dispatch]);
 
   const handleButtonClick = () => {
     console.log('Button Clicked');
@@ -36,14 +41,15 @@ function UserPage() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ newLevelIndex: (levelIndex + 1) % levels.length }),
+      body: JSON.stringify({ newLevelIndex: (levels.indexOf(level) + 1) % levels.length }),
+
     })
       .then((response) => response.json())
       .then((data) => {
         console.log('Server Response', data);
         if (data.success) {
           // Update the level index on the client
-          setLevelIndex((prevIndex) => (prevIndex + 1) % levels.length);
+          dispatch({ type: 'SET_LEVEL', payload: levels[(levels.indexOf(level) + 1) % levels.length] });
         }
       });
   };
@@ -93,14 +99,16 @@ function UserPage() {
       <LogOutButton className="btn" />
 
       <div className="donatecontainer">
-        <ProgressBar level={levels[levelIndex]} />
+        <ProgressBar level={level} />
 
         <h3>Admin Controls</h3>
         <br />
         {/* Conditionally render the button if the user is logged in */}
         {isLoggedIn && (
           <React.Fragment>
-            <button onClick={handleButtonClick}>Change Level</button>
+            <button onClick={handleButtonClick}>
+              Change Level
+            </button>
             <button onClick={convertAndDownloadCSV}>Download CSV</button>
           </React.Fragment>
         )}

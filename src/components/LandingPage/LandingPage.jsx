@@ -12,9 +12,14 @@ import { useSelector } from "react-redux";
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
   const history = useHistory();
+  const level = useSelector((state) => state.navBarReducer.level);
 
-  const toOrder = (event) => {
-    history.push("/order");
+
+  const toOrder = () => {
+    // Check if the level is not "Insufficient" before navigating
+    if (level !== "Insufficient") {
+      history.push("/order");
+    }
   };
 
   const toDonate = (event) => {
@@ -79,10 +84,10 @@ const handleButtonClick = () => {
         </h2>
       </div>
       <br></br>
-      <button onClick={toOrder} className="btn">
-        {" "}
-        GET ONE FREE!{" "}
-      </button>
+      {level !== "Insufficient" && (
+        <button onClick={toOrder} className="btn">
+          GET ONE FREE!
+        </button> )}
 
       <br></br>
       <br></br>
