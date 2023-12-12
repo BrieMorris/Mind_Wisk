@@ -54,7 +54,7 @@ export default function DonationPage() {
       <CssBaseline />
       <div className="Donation-split-layout">
         <div className="Donation-page-image">
-          <img src='./basicSMWoakjpg.jpg' alt='Silver MindWisk' />
+          <img src='./3.png' alt='Silver MindWisk' />
         </div>
 
         {/* <AppBar
