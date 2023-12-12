@@ -72,8 +72,9 @@ export default function DonationForm() {
 
                         </Grid>
                     </Grid>
+                    </Grid>
                 </CardContent>
             </Card>
-        </div>
+        
     )
 };

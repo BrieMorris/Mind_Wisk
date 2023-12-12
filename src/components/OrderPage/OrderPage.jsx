@@ -33,13 +33,6 @@ function OrderPage() {
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
 
-  useEffect(() => {
-    // Dynamically load the reCAPTCHA v3 script
-    const script = document.createElement("script");
-    script.src =
-      "https://www.google.com/recaptcha/api.js?render=6LdKDykpAAAAAKGAEaXNmRFYk67YuiQ-GWy8g45b";
-    script.async = true;
-    document.head.appendChild(script);
 
 
   // Function to handle form submission
