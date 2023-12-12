@@ -4,69 +4,43 @@
   color: #708090;
   text-align: center;
   position: relative;
-  margin: 0px;
+  margin: 50px;
+  line-height: 2;
 }
-
-h1,
-h3 {
+h1 {
   position: relative;
   text-align: center;
   display: inline-block;
 }
-
 .h1-line {
   position: relative;
-  overflow: hidden; /* Add this line to prevent overflow */
-
+  display: inline-block;
+  padding: 0 20px;
 }
-
 .h1-line::before,
 .h1-line::after {
   content: "";
   position: absolute;
-  width: 40%;
+  width: 250px;
   height: 1px;
   background-color: #787878;
   top: 50%;
+  transform: translateY(-50%);
 }
-
 .h1-line::before {
-  left: 0;
-  transform: translateX(-100%); /* Update this line to use transform instead of margin */
+  left: calc(-100% - 20px);
 }
-
 .h1-line::after {
-  right: 0;
-  transform: translateX(100%); /* Update this line to use transform instead of margin */
+  right: calc(-100% - 20px);
 }
-
-
-@media only screen and (max-width: 767px) {
-  .grid-col {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  /* Additional styles for larger screens can be added here */
-}
-
-.aboutcontainer {
-  width: 100%; /* Adjust width for full width on small screens */
-  margin: auto; /* Center on small screens */
-  text-align: center;
-  padding: 0.5rem;
-}
-
 .aboutImage {
   width: 50%;
   height: auto;
 }
-
 .imageCaption {
-  font-size: 14px; /* Smaller font size for the caption */
-  color: #707070; /* Caption text color, adjust as needed */
-  text-align: center; /* Center the caption */
-  margin-top: 8px; /* Space between the image and the caption */
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+  margin-top: 8px;
+  margin-top: -70px;
 }
