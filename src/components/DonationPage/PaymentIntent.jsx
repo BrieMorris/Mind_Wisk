@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
-
+import PaymentForm from "./PaymentForm"; 
 
 
 
@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 // This is your test publishable API key.
 const stripePromise = loadStripe("pk_test_");
 
-import CheckoutForm from './CheckoutForm'
+// import CheckoutForm from './CheckoutForm'
 
 function PaymentIntent(props) {
   const [ clientSecret, setClientSecret ] = useState('');
@@ -61,7 +61,7 @@ function PaymentIntent(props) {
       <h1>Payment</h1>
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret, }}>
-          <CheckoutForm />
+           <PaymentForm />
         </Elements>
       )}
     </>

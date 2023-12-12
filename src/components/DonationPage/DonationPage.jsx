@@ -53,28 +53,28 @@ export default function DonationPage() {
 
     <React.Fragment>
       <CssBaseline />
-      <div className="donationPageLayout">
-        <div id='imgContainerOne'>
-          <img src='./basicSMWoakjpg.jpg' alt='Silver MindWisk' />
+      <div className="Donation-split-layout">
+        <div className="Donation-page-image">
+          <img src='./3.png' alt='Silver MindWisk' />
         </div>
 
         {/* <AppBar
-        position="absolute"
-        color="default"
-        elevation={0}
-        sx={{
-          position: 'relative',
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            MindWisk Donation
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
+          position="absolute"
+          color="default"
+          elevation={0}
+          sx={{
+            position: 'relative',
+            borderBottom: (t) => `1px solid ${t.palette.divider}`,
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" color="inherit" noWrap>
+              MindWisk Donation
+            </Typography>
+          </Toolbar>
+        </AppBar> */}
 
-        <Container id="container" component="main" maxWidth="sm" sx={{ mb: 4 }}>
+        <Container className="Donation-page-content" component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
             <Typography component="h1" variant="h4" align="center">
               MindWisk Donation
@@ -92,8 +92,16 @@ export default function DonationPage() {
                   Thank you for your Donation.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your Donation Confirmation number is #2001539. We have emailed your receipt confirmation.
+                  Your Donation Confirmation number is #2001539. 
                 </Typography>
+                <Button
+                  variant="contained"
+                  onClick={() => setActiveStep(0)} // Reset the step to the beginning
+                  sx={{ mt: 3 }}
+                >
+                  Done
+                </Button>
+
               </React.Fragment>
             ) : (
 
@@ -112,7 +120,7 @@ export default function DonationPage() {
                     onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Donate' : 'Next'}
                   </Button>
                 </Box>
               </React.Fragment>

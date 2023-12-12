@@ -10,8 +10,14 @@ import videoFile from "./video.mp4";
 function LandingPage() {
   const [heading, setHeading] = useState("MindWisk");
   const history = useHistory();
-  const toOrder = (event) => {
-    history.push("/order");
+  const level = useSelector((state) => state.navBarReducer.level);
+  
+  const toOrder = () => {
+    // Check if the level is not "Insufficient" before navigating
+    if (level !== "Insufficient") {
+      history.push("/order");
+    }
+
   };
   const toDonate = (event) => {
     history.push("/donate");
@@ -30,10 +36,10 @@ function LandingPage() {
         </h2>
       </div>
       <br></br>
-      <button onClick={toOrder} className="btn">
-        {" "}
-        GET ONE FREE!{" "}
-      </button>
+      {level !== "Insufficient" && (
+        <button onClick={toOrder} className="btn">
+          GET ONE FREE!
+        </button> )}
       <br></br>
       <br></br>
       <br></br>
