@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import logo from './MindWisk Brand Board (5).png';
-import { useHistory, useState, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Button, Typography, Grid } from '@mui/material';
 //Imported Logos
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -25,33 +25,41 @@ function Footer() {
     img.width = newWidth;
   }
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
     <footer>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={8} lg={9}>
+      <Grid container justifyContent="space-between">
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          {/* Leftmost grid content */}
           <img src={logo} alt="MindWisk Logo" onLoad={(event) => resizeImg(event.target, 150)} />
           <br /><br />
           <Typography variant="body2" style={{ textAlign: 'left', fontSize: '1.5rem' }}>
             &copy; MindWisk
           </Typography>
           <br />
-          <Button variant="outlined" onClick={disclaimer} style={{ color: 'white' }}>
+          <Button variant="outlined" onClick={disclaimer} style={{ color: 'white', backgroundColor: '#50C878' }}>
             Disclaimer
           </Button>
         </Grid>
 
-
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <div className="right-content">
-            <Typography variant="h6">Contact:</Typography>
-            <br />
+        <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          {/* Center grid content */}
+          <div className="center-content">
+          </div>
+          <br /><br />
+          <Typography variant="h6">CONTACT US:</Typography>
+          <br />
+          <a href="mailto:MindWisk@gmail.com" style={{ color: 'white' }}>
             <Typography variant="body2">MindWisk@gmail.com</Typography>
+          </a>
+          <br />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
+          {/* Rightmost grid content */}
+          <div className="right-content" style={{ marginBottom: '40px' }}>
+            <br /><br />
+            <Typography variant="h6">FOLLOW US</Typography>
             <br />
-            <Typography variant="body2">Follow Us!</Typography>
 
             <a href="https://www.facebook.com/MindWisk" target="_blank" rel="noopener noreferrer">
               <FacebookIcon />
@@ -68,12 +76,13 @@ function Footer() {
             <a href="https://www.youtube.com/@MindWisk" target="_blank" rel="noopener noreferrer">
               <YouTubeIcon />
             </a>
-            <br />
-            <Button variant="outlined" onClick={admin} style={{ color: 'white' }}>
+            <br /><br /><br /><br />
+            <Button variant="outlined" onClick={admin} style={{ color: 'white', backgroundColor: '#50C878' }}>
               Admin
             </Button>
           </div>
         </Grid>
+
       </Grid>
     </footer>
   );

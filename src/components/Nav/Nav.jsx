@@ -20,15 +20,12 @@ function Nav() {
           <Link className="navLink" to="/about">
             About
           </Link>
-
           <Link className="navLink" to="/gallery">
             Gallery
           </Link>
-
           <Link className="navLink" to="/donate">
             Donate
           </Link>
-
           <Link className="navLink" to="/order">
             Order
           </Link>
@@ -37,5 +34,4 @@ function Nav() {
     </div>
   );
 }
-
 export default Nav;

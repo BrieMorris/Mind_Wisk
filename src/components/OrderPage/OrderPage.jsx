@@ -1,13 +1,28 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 
+import axios from 'axios';
+import { useState } from "react";
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import ReCAPTCHA from "react-google-recaptcha";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import watercolor from "./watercolor.png"
+// import "./OrderPage.css"
 function OrderPage() {
+
+  const [isRecaptchaVerified, setRecaptchaVerified] = useState(false);
+
+  const onRecaptchaChange = (value) => {
+    // Set the state to true when ReCAPTCHA is successfully completed
+    setRecaptchaVerified(true);
+  };
+
+
+  const history = useHistory()
+
   // Define state hooks for each form field
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -19,62 +34,57 @@ function OrderPage() {
   const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
 
-  useEffect(() => {
-    // Dynamically load the reCAPTCHA v3 script
-    const script = document.createElement("script");
-    script.src =
-      "https://www.google.com/recaptcha/api.js?render=6LdKDykpAAAAAKGAEaXNmRFYk67YuiQ-GWy8g45b";
-    script.async = true;
-    document.head.appendChild(script);
 
-    return () => {
-      // Remove the script when the component unmounts
-      document.head.removeChild(script);
-    };
-  }, []);
 
   // Function to handle form submission
-  const submitOrder = (e) => {
-    e.preventDefault(); // Prevent default form submission
+  const submitOrder = () => {
+    if (isRecaptchaVerified) {
+      const orderInfo = {
+        firstname,
+        lastname,
+        address,
+        address2,
+        city,
+        email,
+        state,
+        zipcode,
+        country
+      };
 
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute("your_reCA6LdKDykpAAAAAKGAEaXNmRFYk67YuiQ-GWy8g45b", { action: "submit" })
-        .then((token) => {
-          const orderInfo = {
-            firstname,
-            lastname,
-            address,
-            address2,
-            city,
-            email,
-            state,
-            zipcode,
-            country,
-            recaptchaToken: token, // Include the reCAPTCHA token
-          };
 
-          // Submit this information to your backend
-          axios
-            .post("/orders", orderInfo)
-            .then((response) => {
-              console.log("Order submitted:", response.data);
-              // Handle successful submission
-            })
-            .catch((error) => {
-              console.error("Error submitting order:", error);
-              // Handle errors
-            });
+      console.log("Info", orderInfo);
+      axios.post('/orders', orderInfo)
+        .then((response) => {
+          console.log('Order submitted:', response.data);
+
+          
+          history.push('/ThankYouPage');
+          // Handle successful submission, e.g., show a success message or redirect
+        })
+        .catch((error) => {
+          console.error('Error submitting order:', error);
+          // Handle errors, e.g., show an error message
         });
-    });
-  };
+    } else {
+      // If ReCAPTCHA is not verified, show an error message or take appropriate action
+      console.error("ReCAPTCHA verification failed. Please complete the ReCAPTCHA.");
+    }
+  }
+
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
+
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={watercolor} alt="Watercolor Image" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+      </div>
+
+      <Typography variant="h6" gutterBottom  style={{ textAlign: 'center', padding: '10px', margin: '10px' }}>
         Shipping address
       </Typography>
-      <Grid container spacing={3}>
+
+      <Grid container spacing={3} style={{ padding: '50px', margin: '30px' }}>
+        
         <Grid item xs={12} sm={6}>
           <TextField
             required
@@ -199,8 +209,16 @@ function OrderPage() {
             label="Use this address for payment details"
           />
           <Grid item xs={12}>
-          <button onClick={submitOrder}>Submit</button>
+
+            <button onClick={submitOrder} disabled={!isRecaptchaVerified}>Submit  </button>
           </Grid>
+          <br/>
+          <ReCAPTCHA
+            sitekey="6Ldw0ywpAAAAAJTnOz2XKYkjlzH30H7TZZLy6QD-"
+            onChange={onRecaptchaChange}
+          />
+
+
         </Grid>
       </Grid>
     </React.Fragment>

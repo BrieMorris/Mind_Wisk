@@ -7,7 +7,6 @@
   font-style: normal;
 }
 
-
 .Donation-split-layout {
   display: flex;
   justify-content: center;
@@ -51,3 +50,4 @@
     width: 100%; 
   }
 }
+

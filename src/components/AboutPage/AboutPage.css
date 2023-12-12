@@ -4,7 +4,7 @@
   color: #708090;
   text-align: center;
   position: relative;
-  margin: 50px;
+  margin: 0px;
 }
 
 h1,
@@ -16,6 +16,8 @@ h3 {
 
 .h1-line {
   position: relative;
+  overflow: hidden; /* Add this line to prevent overflow */
+
 }
 
 .h1-line::before,
@@ -30,12 +32,31 @@ h3 {
 
 .h1-line::before {
   left: 0;
-  margin-left: -45%;
+  transform: translateX(-100%); /* Update this line to use transform instead of margin */
 }
 
 .h1-line::after {
   right: 0;
-  margin-right: -45%;
+  transform: translateX(100%); /* Update this line to use transform instead of margin */
+}
+
+
+@media only screen and (max-width: 767px) {
+  .grid-col {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* Additional styles for larger screens can be added here */
+}
+
+.aboutcontainer {
+  width: 100%; /* Adjust width for full width on small screens */
+  margin: auto; /* Center on small screens */
+  text-align: center;
+  padding: 0.5rem;
 }
 
 .aboutImage {

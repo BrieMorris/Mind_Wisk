@@ -1,0 +1,24 @@
+/* Default styles for larger screens */
+body {
+  font-size: 16px;
+  margin: 100%;
+  padding: 2333ch;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Media query for screens smaller than 600 pixels (typical mobile phones) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  /* Add more styles or adjust existing styles for smaller screens */
+}

@@ -1,7 +1,9 @@
+
 /** Simultaneously stimulating & relaxing. */
 
 .containerheading {
   font-size: 30px;
+
 }
 
 /** Head massagers like the MindWisk... */
@@ -100,6 +102,7 @@
   width: 80%; /* Set a specific width for the container */
 }
 
+
 .inactionheader::before,
 .inactionheader::after {
   content: "";
@@ -127,12 +130,14 @@
   margin: 0 auto; /* Center the container */
   width: 80%; /* Set a specific width for the container */
 }
+
 /* Progress Bar, "Spreading thhe joy!", and Donate button */
 .donatecontainer {
   width: 50%; /* or any specific width */
   margin: 0 auto; /* auto margin on left and right */
   text-align: center; /* centering the inline/inline-block content */
 }
+
 
 .missionheader::before,
 .missionheader::after {
@@ -173,4 +178,5 @@
 .kidImage {
   width: 20%;
   height: auto;
+
 }
