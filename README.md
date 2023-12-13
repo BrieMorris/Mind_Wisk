@@ -18,12 +18,12 @@ Donate Button: Primary Call to action to Support the cause.
 Order page with customer info intake and MinWisk order form.  
 Donate page: Donate page to support MindWisk's initiative.
 Integrated with Stripe- Payment Gateway to ensure secure and efficient user donation handling. 
-Gallery page: Displays customer photo submission.  
+Gallery page: Displays customer photo submission. The admin uploads using Cloudinary API.  
 NavBar: Routes to Home, About, Gallery, Donate, Pages
 Footer: 
 Contact Info, Admin Button, Disclaimer Page Button, Social Media linked Icons
 Disclaimer Page: 
-Admin Page:
+Admin Page: Cloudinary Photo Upload: Allows the admin to upload photos to the gallery. 
 
 ## Technologies Used
 JavaScript 
@@ -47,13 +47,16 @@ Before you get started, make sure you have the following software installed on y
 - [Node.js](https://nodejs.org/en/)
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
+- [React] and [React Router] dependencies installed.
+- [Redux] for state management.
+- [Material-UI] for UI components.
 
 
 
-## Dependencies installed
+## Dependencies installed - add more
 - run an `npm install`. 
 
-## Create database and table
+## Create database and table /// this needs to be edited!!
 
 Create a new database called `mindwisk` and create a `user` table:
 
@@ -87,6 +90,34 @@ Add the rest of the tables and inputs into the database from the `database.sql` 
 - Run `npm run server` to run the node server.
 - In a separate terminal tab, run `npm run client` to launch the React app. 
 - Navigate to localhost:3000
+
+## Cloudinary
+
+Cloudinary React Component:
+The Cloudinary component is designed to facilitate the uploading of photos for the gallery through the Cloudinary service. This React component integrates with Redux for state management, React Router for navigation, and Material-UI for styling.
+
+Features:
+Photo Upload: Allows the admin to upload photos to the gallery.
+Redux Integration: Utilizes Redux for state management to handle the gallery state.
+Navigation: Redirects to the gallery page after successfully adding a photo.
+
+Component Structure
+The Cloudinary component is structured as follows:
+Dependencies: 
+  -React, Redux, React Router, Material-UI
+State: 
+  -image: Holds the selected image file.
+  -description: Stores the description of the photo.
+Functions:
+  -onFileChange: Handles the selection of an image file, restricting it to supported formats.
+  -addPhoto: Dispatches the 'ADD_PHOTO' action to add the photo to the gallery and redirects  to the gallery page.
+  -toGallery: Redirects to the gallery page without adding the photo.
+Styling:
+Utilizes inline styles to center and style the heading and other elements.
+
+Notes
+  -Ensure that Node.js and the required dependencies are installed before running the application.
+  -The component assumes the existence of a Redux store with the necessary actions and reducers for managing the gallery state.
 
 ## Debugging
 
