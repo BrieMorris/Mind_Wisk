@@ -218,17 +218,13 @@ LinkedIn: https://www.linkedin.com/in/gabrielle-lepensky/
 ## Wireframes
 
 <p align="center">
-  <img src="public/readmewireframes/landingpageimg1.png" width="350" title="Mindwisk Navbar/Mission Statement">
-  <img src="public/readmewireframes/landingpageimg2.png" width="450" alt="Mindwisk Benefits">
-  <img src="public/readmewireframes/landingpageimg3.png" width="550" alt="Video of Mindwisk Product being used.">
+  <img src="public/readmewireframes/landingpageimg1.png" width="650" title="Mindwisk Navbar/Mission Statement">
+  <img src="public/readmewireframes/landingpageimg2.png" width="650" alt="Mindwisk Benefits">
+  <img src="public/readmewireframes/landingpageimg3.png" width="650" alt="Video of Mindwisk Product being used.">
   <img src="public/readmewireframes/landingpageimg4.png" width="650" alt="Landing Page Mission Description">
   <img src="public/readmewireframes/landingpageprogressbar.png" width="350" alt="Progress Bar">
-  <img src="public/readmewireframes/Footer.png" width="350" alt="Footer">
-  <img src="public/readmewireframes/donatepage.png" width="350" alt="Donate Page">
-  <img src="public/readmewireframes/disclaimerpage.png" width="350" alt="Disclaimer Page">
-  <img src="public/readmewireframes/adminlogin.png" width="350" alt="Admin Login Page">
+  <img src="public/readmewireframes/Footer.png" width="650" alt="Footer">
+  <img src="public/readmewireframes/donatepage.png" width="650" alt="Donate Page">
+  <img src="public/readmewireframes/disclaimerpage.png" width="650" alt="Disclaimer Page">
+  <img src="public/readmewireframes/adminlogin.png" width="650" alt="Admin Login Page">
 </p>
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
