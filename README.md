@@ -217,6 +217,11 @@ LinkedIn: https://www.linkedin.com/in/gabrielle-lepensky/
 
 ## Wireframes
 
+<p align="center">
+  <img src="server/readmewireframes/landingpageimg1.png" width="350" title="Mindwisk Navbar/Mission Statement">
+  <img src="../landingpageimg2.png" width="350" alt="MindWisk Benefits">
+</p>
+
 ## Update Documentation
 
 Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
