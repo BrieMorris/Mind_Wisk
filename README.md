@@ -222,7 +222,7 @@ LinkedIn: https://www.linkedin.com/in/gabrielle-lepensky/
   <img src="public/readmewireframes/landingpageimg2.png" width="650" alt="Mindwisk Benefits">
   <img src="public/readmewireframes/landingpageimg3.png" width="650" alt="Video of Mindwisk Product being used.">
   <img src="public/readmewireframes/landingpageimg4.png" width="650" alt="Landing Page Mission Description">
-  <img src="public/readmewireframes/landingpageprogressbar.png" width="350" alt="Progress Bar">
+  <img src="public/readmewireframes/landingpageprogressbar.png" width="650" alt="Progress Bar">
   <img src="public/readmewireframes/Footer.png" width="650" alt="Footer">
   <img src="public/readmewireframes/donatepage.png" width="650" alt="Donate Page">
   <img src="public/readmewireframes/disclaimerpage.png" width="650" alt="Disclaimer Page">
